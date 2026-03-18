@@ -2,9 +2,9 @@
   "placeholderImages": [
     {
       "id": "hero-background",
-      "description": "A dark, stormy mountain landscape, embodying extreme conditions.",
-      "imageUrl": "https://picsum.photos/seed/stormymountain/1920/1280",
-      "imageHint": "stormy mountain"
+      "description": "A snowy mountain range at sunset, conveying a sense of challenge and beauty.",
+      "imageUrl": "https://picsum.photos/seed/duskymountain/1920/1280",
+      "imageHint": "snowy mountain"
     },
     {
       "id": "urban-equipment",
