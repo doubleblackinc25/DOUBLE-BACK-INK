@@ -1,3 +1,40 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "hero-background",
+      "description": "A dark, stormy mountain landscape, embodying extreme conditions.",
+      "imageUrl": "https://picsum.photos/seed/stormymountain/1920/1280",
+      "imageHint": "stormy mountain"
+    },
+    {
+      "id": "urban-equipment",
+      "description": "Close-up of wet asphalt on a city street at night.",
+      "imageUrl": "https://picsum.photos/seed/wetasphalt/800/800",
+      "imageHint": "wet asphalt"
+    },
+    {
+      "id": "performance-trail",
+      "description": "A rugged mountain trail disappearing into mist.",
+      "imageUrl": "https://picsum.photos/seed/trailmist/800/1200",
+      "imageHint": "mountain trail"
+    },
+    {
+      "id": "limited-editions",
+      "description": "Macro shot of carbon fiber weave.",
+      "imageUrl": "https://picsum.photos/seed/carbonfiber/800/800",
+      "imageHint": "carbon fiber"
+    },
+    {
+      "id": "tech-fabric-1",
+      "description": "Detail of technical ripstop fabric.",
+      "imageUrl": "https://picsum.photos/seed/ripstop/600/400",
+      "imageHint": "technical fabric"
+    },
+    {
+      "id": "tech-fabric-2",
+      "description": "Close-up of reinforced, weatherproof seams on a jacket.",
+      "imageUrl": "https://picsum.photos/seed/seams/600/400",
+      "imageHint": "reinforced seams"
+    }
+  ]
 }
