@@ -2,9 +2,9 @@
   "placeholderImages": [
     {
       "id": "hero-background",
-      "description": "A person standing on a mountain peak, overlooking clouds.",
-      "imageUrl": "https://i.imgur.com/vJ5V6s6.png",
-      "imageHint": "mountain peak"
+      "description": "A person on a bike in a dark forest.",
+      "imageUrl": "https://i.imgur.com/mAJlWtm.png",
+      "imageHint": "forest bike"
     },
     {
       "id": "urban-equipment",
