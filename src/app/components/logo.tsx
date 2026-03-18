@@ -13,7 +13,7 @@ export default function Logo({ className }: { className?: string }) {
       aria-label="Double Black Supply Home"
     >
       <span>Double Black</span>
-      <DiamondIcon className="text-accent" />
+      <DiamondIcon />
     </Link>
   );
 }
