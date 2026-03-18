@@ -2,9 +2,9 @@
   "placeholderImages": [
     {
       "id": "hero-background",
-      "description": "A dark, foggy forest, creating a mysterious and challenging atmosphere.",
-      "imageUrl": "https://picsum.photos/seed/foggyforest/1920/1280",
-      "imageHint": "foggy forest"
+      "description": "A person standing on a mountain peak, overlooking clouds.",
+      "imageUrl": "https://i.imgur.com/vJ5V6s6.png",
+      "imageHint": "mountain peak"
     },
     {
       "id": "urban-equipment",
