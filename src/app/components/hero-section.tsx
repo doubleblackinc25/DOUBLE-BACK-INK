@@ -1,22 +1,44 @@
+"use client";
+
 import Image from "next/image";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { Button } from "@/components/ui/button";
 import { ArrowDown } from "lucide-react";
+import { useEffect, useState } from "react";
 
 export default function HeroSection() {
-  const heroImage = PlaceHolderImages.find((img) => img.id === "hero-background");
+  const heroImage = PlaceHolderImages.find(
+    (img) => img.id === "hero-background"
+  );
+  const [offsetY, setOffsetY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setOffsetY(window.pageYOffset);
+    };
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
-    <section className="relative h-[90vh] min-h-[600px] flex items-center justify-center text-center text-white">
+    <section className="relative h-[90vh] min-h-[600px] flex items-center justify-center text-center text-white overflow-hidden">
       {heroImage && (
-        <Image
-          src={heroImage.imageUrl}
-          alt={heroImage.description}
-          fill
-          className="object-cover"
-          priority
-          data-ai-hint={heroImage.imageHint}
-        />
+        <div
+          className="absolute w-full h-[120%] -top-[10%] -bottom-[10%]"
+          style={{ transform: `translateY(${offsetY * 0.4}px)` }}
+        >
+          <Image
+            src={heroImage.imageUrl}
+            alt={heroImage.description}
+            fill
+            className="object-cover"
+            priority
+            data-ai-hint={heroImage.imageHint}
+          />
+        </div>
       )}
       <div className="absolute inset-0 bg-black/70" />
       <div className="relative z-10 p-4 container mx-auto">
