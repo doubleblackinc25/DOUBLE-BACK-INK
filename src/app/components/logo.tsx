@@ -10,13 +10,13 @@ export default function Logo({ className }: { className?: string }) {
     <Link
       href="/"
       className={cn(
-        "flex items-center gap-3 transition-opacity hover:opacity-80",
+        "flex items-center gap-2 transition-opacity hover:opacity-80",
         className
       )}
       aria-label="Double Black inc Home"
     >
       {logoImage && (
-        <div className="relative w-8 h-8 md:w-10 md:h-10">
+        <div className="relative w-6 h-6 md:w-8 md:h-8 shrink-0">
           <Image
             src={logoImage.imageUrl}
             alt="Double Black inc Logo"
@@ -26,8 +26,8 @@ export default function Logo({ className }: { className?: string }) {
         </div>
       )}
       <div className="flex items-center">
-        <span className="font-logo text-2xl md:text-4xl tracking-tight text-gradient-metallic">
-          Double Black inc
+        <span className="font-logo text-lg md:text-2xl tracking-tight text-gradient-metallic py-1 leading-none">
+          Double Black inc.
         </span>
       </div>
     </Link>
