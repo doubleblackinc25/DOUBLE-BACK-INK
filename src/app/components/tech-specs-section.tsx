@@ -34,9 +34,9 @@ export default function TechSpecsSection() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
           {specs.map((spec) => (
             <Card key={spec.title} className="bg-card border-2 border-border flex flex-col h-full text-center">
-                <CardHeader className="flex flex-col items-center pt-8">
+                <CardHeader className="flex flex-col items-center pt-8 px-4">
                     <div className="mb-4">{spec.icon}</div>
-                    <CardTitle className="text-xl md:text-2xl font-logo uppercase tracking-wider">
+                    <CardTitle className="text-lg md:text-xl font-logo uppercase tracking-normal leading-tight">
                         {spec.title}
                     </CardTitle>
                 </CardHeader>
