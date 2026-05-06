@@ -1,4 +1,4 @@
-import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 import { Shield, Wind, Thermometer } from "lucide-react";
 
 const specs = [
@@ -33,14 +33,18 @@ export default function TechSpecsSection() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
           {specs.map((spec) => (
-            <Card key={spec.title} className="bg-card border-2 border-border p-6 text-center">
-                <div className="flex justify-center mb-4">{spec.icon}</div>
-                <CardHeader className="p-0">
-                    <CardTitle className="text-xl font-bold uppercase tracking-wider">{spec.title}</CardTitle>
+            <Card key={spec.title} className="bg-card border-2 border-border flex flex-col h-full text-center">
+                <CardHeader className="flex flex-col items-center pt-8">
+                    <div className="mb-4">{spec.icon}</div>
+                    <CardTitle className="text-xl font-bold uppercase tracking-wider">
+                        {spec.title}
+                    </CardTitle>
                 </CardHeader>
-                <CardDescription className="mt-2 text-base text-muted-foreground">
-                    {spec.description}
-                </CardDescription>
+                <CardContent className="pb-8">
+                    <CardDescription className="text-base text-muted-foreground">
+                        {spec.description}
+                    </CardDescription>
+                </CardContent>
             </Card>
           ))}
         </div>
