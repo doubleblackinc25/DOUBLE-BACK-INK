@@ -1,3 +1,4 @@
+
 import Image from "next/image";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 
@@ -10,7 +11,7 @@ export default function ManifestoSection() {
         <div className="flex justify-center items-center gap-6 mb-10">
           <div className="w-24 h-px bg-border"></div>
           {logoImage && (
-            <div className="relative w-16 h-16 grayscale opacity-80">
+            <div className="relative w-20 h-20 opacity-90">
               <Image
                 src={logoImage.imageUrl}
                 alt="Logo"
