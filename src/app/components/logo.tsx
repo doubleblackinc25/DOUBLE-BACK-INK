@@ -14,19 +14,19 @@ export default function Logo({ className }: { className?: string }) {
         "flex items-center gap-3 text-xl font-bold uppercase tracking-wider transition-opacity hover:opacity-80",
         className
       )}
-      aria-label="DOUBLE BLACK inc, Home"
+      aria-label="DOUBLE BLACK inc. Home"
     >
       {logoImage && (
         <div className="relative w-10 h-10">
           <Image
             src={logoImage.imageUrl}
-            alt="DOUBLE BLACK inc, Logo"
+            alt="DOUBLE BLACK inc. Logo"
             fill
             className="object-contain"
           />
         </div>
       )}
-      <span className="whitespace-nowrap">DOUBLE BLACK inc,</span>
+      <span className="whitespace-nowrap">DOUBLE BLACK inc.</span>
     </Link>
   );
 }
