@@ -7,6 +7,12 @@
       "imageHint": "forest bike"
     },
     {
+      "id": "brand-logo",
+      "description": "Metallic Double Black Logo",
+      "imageUrl": "https://i.imgur.com/8N4J8XW.png",
+      "imageHint": "metallic logo"
+    },
+    {
       "id": "urban-equipment",
       "description": "Close-up of wet asphalt on a city street at night.",
       "imageUrl": "https://picsum.photos/seed/wetasphalt/800/800",

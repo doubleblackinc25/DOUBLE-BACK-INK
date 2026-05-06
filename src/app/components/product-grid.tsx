@@ -1,7 +1,9 @@
+
+"use client";
+
 import Image from "next/image";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { cn } from "@/lib/utils";
-import { DiamondIcon } from "./diamond-icon";
 import { ArrowRight } from "lucide-react";
 
 const categories = [
@@ -13,20 +15,18 @@ const categories = [
   {
     id: "performance-trail",
     title: "Performance Trail",
-    className: "col-span-1",
+    className: "col-span-1 md:row-span-2 h-full",
   },
   {
     id: "limited-editions",
-    title: (
-      <>
-        Edições Limitadas <DiamondIcon className="inline-block" />
-      </>
-    ),
-    className: "col-span-1 md:col-span-3",
+    title: "Edições Limitadas",
+    className: "col-span-1 md:col-span-2",
   },
 ];
 
 export default function ProductGrid() {
+  const logoImage = PlaceHolderImages.find((img) => img.id === "brand-logo");
+
   return (
     <section className="container mx-auto py-20 sm:py-28 px-4 md:px-6">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 auto-rows-[250px] md:auto-rows-[300px]">
@@ -50,10 +50,20 @@ export default function ProductGrid() {
                   data-ai-hint={image.imageHint}
                 />
               )}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
               <div className="absolute bottom-0 left-0 p-6 w-full">
-                <h3 className="text-2xl md:text-3xl font-bold uppercase text-white tracking-wider">
+                <h3 className="text-2xl md:text-3xl font-bold uppercase text-white tracking-wider flex items-center gap-3">
                   {category.title}
+                  {category.id === "limited-editions" && logoImage && (
+                    <div className="relative w-8 h-8 opacity-90">
+                      <Image
+                        src={logoImage.imageUrl}
+                        alt="Logo"
+                        fill
+                        className="object-contain brightness-200"
+                      />
+                    </div>
+                  )}
                 </h3>
                 <div className="mt-4 flex items-center text-accent font-semibold opacity-0 group-hover:opacity-100 transition-opacity">
                   <span>Ver Coleção</span>
