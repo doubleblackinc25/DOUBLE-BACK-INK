@@ -1,3 +1,4 @@
+
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 import { Shield, Wind, Thermometer } from "lucide-react";
 
@@ -36,7 +37,7 @@ export default function TechSpecsSection() {
             <Card key={spec.title} className="bg-card border-2 border-border flex flex-col h-full text-center">
                 <CardHeader className="flex flex-col items-center pt-8 px-4">
                     <div className="mb-4">{spec.icon}</div>
-                    <CardTitle className="text-lg md:text-xl font-logo uppercase tracking-normal leading-tight">
+                    <CardTitle className="text-lg md:text-xl font-logo uppercase tracking-tight leading-tight">
                         {spec.title}
                     </CardTitle>
                 </CardHeader>
