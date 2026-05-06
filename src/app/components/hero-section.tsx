@@ -1,4 +1,3 @@
-
 "use client";
 
 import Image from "next/image";
@@ -28,7 +27,7 @@ export default function HeroSection() {
     <section className="relative h-[90vh] min-h-[600px] flex items-start justify-center text-center text-white overflow-hidden">
       {heroImage && (
         <div
-          className="absolute w-full h-[120%] top-10"
+          className="absolute w-full h-[120%] top-0"
           style={{ transform: `translateY(${offsetY * 0.3}px)` }}
         >
           <Image

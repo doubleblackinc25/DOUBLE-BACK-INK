@@ -13,7 +13,7 @@ const categories = [
   {
     id: "performance-trail",
     title: "Performance Trail",
-    className: "col-span-1 md:row-span-2",
+    className: "col-span-1",
   },
   {
     id: "limited-editions",
@@ -22,7 +22,7 @@ const categories = [
         Edições Limitadas <DiamondIcon className="inline-block" />
       </>
     ),
-    className: "col-span-1",
+    className: "col-span-1 md:col-span-3",
   },
 ];
 
@@ -36,7 +36,7 @@ export default function ProductGrid() {
             <div
               key={category.id}
               className={cn(
-                "group relative overflow-hidden rounded-md border border-border",
+                "group relative overflow-hidden rounded-md border border-border h-full w-full",
                 category.className
               )}
             >
