@@ -41,9 +41,9 @@ export default function HeroSection() {
           />
         </div>
       )}
-      <div className="absolute inset-0 bg-black/60" />
+      <div className="absolute inset-0 bg-black/50" />
       <div className="relative z-10 p-4 container mx-auto pt-48 md:pt-64">
-        <h1 className="text-5xl md:text-7xl lg:text-9xl font-logo uppercase tracking-tighter drop-shadow-lg text-white">
+        <h1 className="text-6xl md:text-8xl lg:text-9xl font-headline tracking-tight text-gradient-metallic py-4">
           Domine o Extremo
         </h1>
         <p className="mt-6 max-w-2xl mx-auto text-lg md:text-xl text-neutral-300 drop-shadow-md font-medium">
@@ -53,7 +53,7 @@ export default function HeroSection() {
           <Button
             variant="accent"
             size="lg"
-            className="uppercase font-bold tracking-wider px-10 h-14 text-lg"
+            className="font-bold tracking-wider px-10 h-14 text-lg rounded-full"
           >
             Explorar Equipamento
             <ArrowDown className="ml-2 h-5 w-5" />

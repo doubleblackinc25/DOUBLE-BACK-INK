@@ -11,8 +11,8 @@ export default {
     extend: {
       fontFamily: {
         body: ['"Space Grotesk"', 'sans-serif'],
-        headline: ['"Permanent Marker"', 'cursive'],
-        logo: ['"Permanent Marker"', 'cursive'],
+        headline: ['"Kaushan Script"', 'cursive'],
+        logo: ['"Kaushan Script"', 'cursive'],
         code: ['monospace'],
       },
       colors: {

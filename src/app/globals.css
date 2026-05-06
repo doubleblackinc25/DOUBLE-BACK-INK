@@ -60,3 +60,16 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer utilities {
+  .text-gradient-metallic {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(
+      135deg,
+      #e94057 0%,
+      #f27121 50%,
+      #f8d347 100%
+    );
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+  }
+}

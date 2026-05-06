@@ -10,7 +10,7 @@ export default function ManifestoSection() {
         <div className="flex justify-center items-center gap-6 mb-10">
           <div className="w-24 h-px bg-border"></div>
           {logoImage && (
-            <div className="relative w-16 h-16 grayscale brightness-125 opacity-80">
+            <div className="relative w-16 h-16 grayscale opacity-80">
               <Image
                 src={logoImage.imageUrl}
                 alt="Logo"
@@ -21,7 +21,7 @@ export default function ManifestoSection() {
           )}
           <div className="w-24 h-px bg-border"></div>
         </div>
-        <p className="max-w-3xl mx-auto text-2xl md:text-4xl font-logo uppercase tracking-wider text-foreground leading-relaxed">
+        <p className="max-w-4xl mx-auto text-3xl md:text-5xl font-headline tracking-wide text-gradient-metallic leading-relaxed">
           Não somos para todos. Somos para os 1% que não param onde a trilha
           termina.
         </p>
