@@ -16,7 +16,7 @@ export default function Logo({ className }: { className?: string }) {
       aria-label="Double Black inc Home"
     >
       {logoImage && (
-        <div className="relative w-8 h-8 md:w-10 md:h-10 shrink-0 bg-neutral-900/20 rounded-lg flex items-center justify-center">
+        <div className="relative w-6 h-6 md:w-8 md:h-8 shrink-0 bg-neutral-900/20 rounded-lg flex items-center justify-center">
           <Image
             src={logoImage.imageUrl}
             alt="Double Black inc Logo"
@@ -28,7 +28,7 @@ export default function Logo({ className }: { className?: string }) {
         </div>
       )}
       <div className="flex items-center">
-        <span className="font-logo text-xl md:text-2xl lg:text-2xl tracking-tight text-gradient-metallic py-1 leading-none whitespace-nowrap">
+        <span className="font-logo text-base md:text-lg lg:text-lg tracking-tight text-gradient-metallic py-1 leading-none whitespace-nowrap">
           Double Black inc.
         </span>
       </div>
