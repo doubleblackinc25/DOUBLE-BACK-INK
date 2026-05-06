@@ -12,6 +12,7 @@ export default {
       fontFamily: {
         body: ['"Space Grotesk"', 'sans-serif'],
         headline: ['"Space Grotesk"', 'sans-serif'],
+        logo: ['"Permanent Marker"', 'cursive'],
         code: ['monospace'],
       },
       colors: {

@@ -1,4 +1,3 @@
-
 "use client";
 
 import Image from "next/image";
@@ -8,6 +7,11 @@ import { ArrowRight } from "lucide-react";
 
 const categories = [
   {
+    id: "limited-editions",
+    title: "Edições Limitadas",
+    className: "col-span-1 md:row-span-2 h-full",
+  },
+  {
     id: "urban-equipment",
     title: "Equipamento Urbano",
     className: "col-span-1 md:col-span-2",
@@ -15,11 +19,6 @@ const categories = [
   {
     id: "performance-trail",
     title: "Performance Trail",
-    className: "col-span-1 md:row-span-2 h-full",
-  },
-  {
-    id: "limited-editions",
-    title: "Edições Limitadas",
     className: "col-span-1 md:col-span-2",
   },
 ];
