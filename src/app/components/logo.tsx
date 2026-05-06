@@ -25,10 +25,12 @@ export default function Logo({ className }: { className?: string }) {
           />
         </div>
       )}
-      <div className="flex flex-col leading-none">
-        <span className="font-logo text-2xl md:text-4xl tracking-tight text-white uppercase italic">
+      <div className="flex items-end leading-none">
+        <span className="font-logo text-2xl md:text-4xl tracking-tight text-white uppercase">
           DOUBLE BLACK
-          <span className="text-lg md:text-xl lowercase ml-1 align-bottom font-logo not-italic opacity-90">inc.</span>
+        </span>
+        <span className="font-logo text-lg md:text-xl lowercase ml-1 opacity-90 italic">
+          inc.
         </span>
       </div>
     </Link>

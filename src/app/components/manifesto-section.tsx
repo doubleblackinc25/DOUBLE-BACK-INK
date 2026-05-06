@@ -1,4 +1,3 @@
-
 import Image from "next/image";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 
@@ -22,7 +21,7 @@ export default function ManifestoSection() {
           )}
           <div className="w-24 h-px bg-border"></div>
         </div>
-        <p className="max-w-3xl mx-auto text-2xl md:text-3xl font-medium uppercase tracking-wider text-foreground leading-relaxed">
+        <p className="max-w-3xl mx-auto text-2xl md:text-4xl font-logo uppercase tracking-wider text-foreground leading-relaxed">
           Não somos para todos. Somos para os 1% que não param onde a trilha
           termina.
         </p>

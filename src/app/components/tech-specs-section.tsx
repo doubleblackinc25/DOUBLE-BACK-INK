@@ -23,11 +23,11 @@ export default function TechSpecsSection() {
   return (
     <section className="bg-secondary/20 py-20 sm:py-28">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold uppercase tracking-wider">
+        <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-logo uppercase tracking-wider">
                 Engenharia de Performance
             </h2>
-            <p className="mt-4 max-w-2xl mx-auto text-muted-foreground">
+            <p className="mt-4 max-w-2xl mx-auto text-muted-foreground text-lg">
                 Cada peça é um sistema. Cada fibra, uma decisão. Construído para falhar nunca ser uma opção.
             </p>
         </div>
@@ -36,7 +36,7 @@ export default function TechSpecsSection() {
             <Card key={spec.title} className="bg-card border-2 border-border flex flex-col h-full text-center">
                 <CardHeader className="flex flex-col items-center pt-8">
                     <div className="mb-4">{spec.icon}</div>
-                    <CardTitle className="text-xl font-bold uppercase tracking-wider">
+                    <CardTitle className="text-xl md:text-2xl font-logo uppercase tracking-wider">
                         {spec.title}
                     </CardTitle>
                 </CardHeader>

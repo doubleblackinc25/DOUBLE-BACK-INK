@@ -43,10 +43,10 @@ export default function HeroSection() {
       )}
       <div className="absolute inset-0 bg-black/60" />
       <div className="relative z-10 p-4 container mx-auto pt-48 md:pt-64">
-        <h1 className="text-5xl md:text-7xl lg:text-8xl font-extrabold uppercase tracking-tighter drop-shadow-lg">
+        <h1 className="text-5xl md:text-7xl lg:text-9xl font-logo uppercase tracking-tighter drop-shadow-lg text-white">
           Domine o Extremo
         </h1>
-        <p className="mt-4 max-w-2xl mx-auto text-lg md:text-xl text-neutral-300 drop-shadow-md font-medium">
+        <p className="mt-6 max-w-2xl mx-auto text-lg md:text-xl text-neutral-300 drop-shadow-md font-medium">
           Roupas técnicas para quem faz da trilha impossível o seu quintal.
         </p>
         <div className="mt-12">
