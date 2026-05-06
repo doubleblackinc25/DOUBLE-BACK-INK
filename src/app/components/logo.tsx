@@ -1,3 +1,4 @@
+
 import Link from "next/link";
 import Image from "next/image";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
@@ -26,7 +27,7 @@ export default function Logo({ className }: { className?: string }) {
         </div>
       )}
       <div className="flex items-center">
-        <span className="font-logo text-lg md:text-2xl tracking-tight text-gradient-metallic py-1 leading-none">
+        <span className="font-logo text-base md:text-xl tracking-tight text-gradient-metallic py-1 leading-none">
           Double Black inc.
         </span>
       </div>
