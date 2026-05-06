@@ -13,13 +13,13 @@ const categories = [
     className: "col-span-1 md:col-span-2",
   },
   {
-    id: "limited-editions",
-    title: "Edições Limitadas",
+    id: "performance-trail",
+    title: "Performance Trail",
     className: "col-span-1 md:row-span-2 h-full",
   },
   {
-    id: "performance-trail",
-    title: "Performance Trail",
+    id: "limited-editions",
+    title: "Edições Limitadas",
     className: "col-span-1 md:col-span-2",
   },
 ];
@@ -52,7 +52,7 @@ export default function ProductGrid() {
               )}
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
               <div className="absolute bottom-0 left-0 p-6 w-full">
-                <h3 className="text-2xl md:text-3xl font-bold uppercase text-white tracking-wider flex items-center gap-3">
+                <h3 className="text-xl md:text-3xl font-bold uppercase text-white tracking-wider flex items-center gap-3">
                   {category.title}
                   {category.id === "limited-editions" && logoImage && (
                     <div className="relative w-8 h-8 opacity-90">
