@@ -25,8 +25,6 @@ const categories = [
 ];
 
 export default function ProductGrid() {
-  const logoImage = PlaceHolderImages.find((img) => img.id === "brand-logo");
-
   return (
     <section className="container mx-auto py-20 sm:py-28 px-4 md:px-6">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 auto-rows-[250px] md:auto-rows-[300px]">
@@ -56,17 +54,6 @@ export default function ProductGrid() {
                   <h3 className="text-xl md:text-2xl lg:text-3xl font-logo text-white tracking-wider">
                     {category.title}
                   </h3>
-                  {category.id === "limited-editions" && logoImage && (
-                    <div className="relative w-8 h-8 md:w-10 md:h-10 opacity-90 brightness-125">
-                      <Image
-                        src={logoImage.imageUrl}
-                        alt="Logo"
-                        fill
-                        className="object-contain"
-                        data-ai-hint={logoImage.imageHint}
-                      />
-                    </div>
-                  )}
                 </div>
                 <div className="mt-4 flex items-center text-accent font-semibold opacity-0 group-hover:opacity-100 transition-opacity">
                   <span className="text-lg">Ver Coleção</span>
