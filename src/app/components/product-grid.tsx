@@ -8,8 +8,8 @@ import { ArrowRight } from "lucide-react";
 
 const categories = [
   {
-    id: "performance-trail",
-    title: "Performance Trail",
+    id: "limited-editions",
+    title: "Edições Limitadas",
     className: "col-span-1 md:row-span-2 h-full",
   },
   {
@@ -18,8 +18,8 @@ const categories = [
     className: "col-span-1 md:col-span-2",
   },
   {
-    id: "limited-editions",
-    title: "Edições Limitadas",
+    id: "performance-trail",
+    title: "Performance Trail",
     className: "col-span-1 md:col-span-2",
   },
 ];
