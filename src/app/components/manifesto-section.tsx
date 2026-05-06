@@ -11,7 +11,7 @@ export default function ManifestoSection() {
         <div className="flex justify-center items-center gap-6 mb-10">
           <div className="w-24 h-px bg-border"></div>
           {logoImage && (
-            <div className="relative w-20 h-20 opacity-90">
+            <div className="relative w-24 h-24 md:w-32 md:h-32 opacity-90 brightness-110 drop-shadow-2xl">
               <Image
                 src={logoImage.imageUrl}
                 alt="Logo"
