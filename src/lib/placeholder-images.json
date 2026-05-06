@@ -2,9 +2,9 @@
   "placeholderImages": [
     {
       "id": "hero-background",
-      "description": "A person on a bike in a dark forest.",
-      "imageUrl": "https://i.imgur.com/mAJlWtm.png",
-      "imageHint": "forest bike"
+      "description": "Explorador em uma crista de montanha épica ao pôr do sol.",
+      "imageUrl": "https://res.cloudinary.com/dxfjl4kds/image/upload/f_auto,q_auto/ChatGPT_Image_18_de_mar._de_2026_09_54_32_fzu0dc",
+      "imageHint": "mountain hiker"
     },
     {
       "id": "brand-logo",
