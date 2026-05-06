@@ -1,6 +1,5 @@
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { DiamondIcon } from "./diamond-icon";
 import Logo from "./logo";
 
 export default function Footer() {
@@ -9,10 +8,10 @@ export default function Footer() {
       <div className="container mx-auto py-12 px-4 md:px-6">
         <div className="grid md:grid-cols-2 gap-8 items-center">
           <div className="space-y-4">
-            <h2 className="text-2xl md:text-3xl font-bold uppercase tracking-wider">
+            <h2 className="text-2xl md:text-3xl font-headline uppercase tracking-wider">
               Entre para o Esquadrão de Elite
             </h2>
-            <p className="text-muted-foreground max-w-md">
+            <p className="text-muted-foreground max-w-md font-body">
               Seja o primeiro a saber sobre lançamentos de edições limitadas e
               tenha acesso a conteúdo exclusivo. Sem spam. Apenas performance.
             </p>
@@ -21,13 +20,13 @@ export default function Footer() {
             <Input
               type="email"
               placeholder="seu.email@dominio.com"
-              className="flex-1 bg-background border-2 border-border focus:border-accent focus:ring-accent text-lg h-12"
+              className="flex-1 bg-background border-2 border-border focus:border-accent focus:ring-accent text-lg h-12 font-body"
               aria-label="Email para newsletter"
             />
             <Button
               type="submit"
               variant="accent"
-              className="h-12 text-lg uppercase font-bold"
+              className="h-12 text-lg uppercase font-headline"
             >
               Inscrever
             </Button>
@@ -35,7 +34,7 @@ export default function Footer() {
         </div>
         <div className="mt-12 pt-8 border-t border-border flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
           <Logo />
-          <p className="text-sm text-muted-foreground">
+          <p className="text-sm text-muted-foreground font-body">
             © {new Date().getFullYear()} Double Black Supply Inc. Domine o Extremo.
           </p>
         </div>

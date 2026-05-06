@@ -11,7 +11,7 @@ export default {
     extend: {
       fontFamily: {
         body: ['"Space Grotesk"', 'sans-serif'],
-        headline: ['"Space Grotesk"', 'sans-serif'],
+        headline: ['"Permanent Marker"', 'cursive'],
         logo: ['"Permanent Marker"', 'cursive'],
         code: ['monospace'],
       },
