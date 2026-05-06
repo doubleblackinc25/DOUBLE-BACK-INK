@@ -8,8 +8,8 @@ import { ArrowRight } from "lucide-react";
 
 const categories = [
   {
-    id: "limited-editions",
-    title: "Edições Limitadas",
+    id: "performance-trail",
+    title: "Performance Trail",
     className: "col-span-1 md:row-span-2 h-full",
   },
   {
@@ -18,8 +18,8 @@ const categories = [
     className: "col-span-1 md:col-span-2",
   },
   {
-    id: "performance-trail",
-    title: "Performance Trail",
+    id: "limited-editions",
+    title: "Edições Limitadas",
     className: "col-span-1 md:col-span-2",
   },
 ];
@@ -53,11 +53,11 @@ export default function ProductGrid() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
               <div className="absolute bottom-0 left-0 p-6 w-full">
                 <div className="flex items-center gap-3 flex-wrap">
-                  <h3 className="text-xl md:text-3xl lg:text-4xl font-logo text-white tracking-wider">
+                  <h3 className="text-xl md:text-2xl lg:text-3xl font-logo text-white tracking-wider">
                     {category.title}
                   </h3>
                   {category.id === "limited-editions" && logoImage && (
-                    <div className="relative w-8 h-8 md:w-12 md:h-12 opacity-90 brightness-125">
+                    <div className="relative w-8 h-8 md:w-10 md:h-10 opacity-90 brightness-125">
                       <Image
                         src={logoImage.imageUrl}
                         alt="Logo"
