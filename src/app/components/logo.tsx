@@ -1,4 +1,3 @@
-
 import Link from "next/link";
 import Image from "next/image";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
@@ -17,7 +16,7 @@ export default function Logo({ className }: { className?: string }) {
       aria-label="Double Black inc Home"
     >
       {logoImage && (
-        <div className="relative w-12 h-12 md:w-16 md:h-16 shrink-0 bg-neutral-900/20 rounded-lg flex items-center justify-center">
+        <div className="relative w-10 h-10 md:w-12 md:h-12 shrink-0 bg-neutral-900/20 rounded-lg flex items-center justify-center">
           <Image
             src={logoImage.imageUrl}
             alt="Double Black inc Logo"
@@ -29,7 +28,7 @@ export default function Logo({ className }: { className?: string }) {
         </div>
       )}
       <div className="flex items-center">
-        <span className="font-logo text-4xl md:text-5xl lg:text-6xl tracking-tight text-gradient-metallic py-1 leading-none whitespace-nowrap">
+        <span className="font-logo text-3xl md:text-4xl lg:text-4xl tracking-tight text-gradient-metallic py-1 leading-none whitespace-nowrap">
           Double Black inc.
         </span>
       </div>
