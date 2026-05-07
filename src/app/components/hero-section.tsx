@@ -1,3 +1,4 @@
+
 "use client";
 
 import Image from "next/image";
@@ -27,21 +28,21 @@ export default function HeroSection() {
     <section className="relative h-[90vh] min-h-[600px] flex items-start justify-center text-center text-white overflow-hidden">
       {heroImage && (
         <div
-          className="absolute w-full h-[140%] -top-20"
+          className="absolute w-full h-[140%] -top-32"
           style={{ transform: `translateY(${offsetY * 0.3}px)` }}
         >
           <Image
             src={heroImage.imageUrl}
             alt={heroImage.description}
             fill
-            style={{ objectPosition: 'center' }}
+            style={{ objectPosition: 'center top' }}
             className="object-cover"
             priority
             data-ai-hint={heroImage.imageHint}
           />
         </div>
       )}
-      <div className="absolute inset-0 bg-black/50" />
+      <div className="absolute inset-0 bg-black/40" />
       <div className="relative z-10 p-4 container mx-auto pt-32 md:pt-48">
         <h1 className="text-6xl md:text-8xl lg:text-9xl font-headline tracking-tight text-gradient-metallic py-4">
           Domine o Extremo
