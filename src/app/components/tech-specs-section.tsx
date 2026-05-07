@@ -5,8 +5,8 @@ import { Shield, Wind, Thermometer } from "lucide-react";
 const specs = [
   {
     icon: <Shield className="h-10 w-10 text-accent" />,
-    title: "Impermeabilidade Total",
-    description: "Membranas seladas para resistir às tempestades mais severas. A água não tem chance.",
+    title: "Durabilidade Total",
+    description: "Fibras ultra-resistentes e costuras reforçadas projetadas para sobreviver aos ambientes mais hostis do planeta.",
   },
   {
     icon: <Wind className="h-10 w-10 text-accent" />,
