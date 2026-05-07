@@ -11,7 +11,7 @@ const specs = [
   {
     icon: <Wind className="h-10 w-10 text-accent" />,
     title: "Respirabilidade Extrema",
-    description: "Tecidos que liberam o vapor sem comprometer a proteção. Mantenha o corpo seco por dentro e por fora.",
+    description: "Tecnologia de microclima que garante uma refrescância contínua e rápida evaporação do suor, mantendo você revigorado mesmo sob esforço intenso.",
   },
   {
     icon: <Thermometer className="h-10 w-10 text-accent" />,
