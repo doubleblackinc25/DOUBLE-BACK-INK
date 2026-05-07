@@ -1,6 +1,6 @@
 
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
-import { Shield, Wind, Thermometer } from "lucide-react";
+import { Shield, Wind, Sun } from "lucide-react";
 
 const specs = [
   {
@@ -14,9 +14,9 @@ const specs = [
     description: "Tecnologia de microclima que garante uma refrescância contínua e rápida evaporação do suor, mantendo você revigorado mesmo sob esforço intenso.",
   },
   {
-    icon: <Thermometer className="h-10 w-10 text-accent" />,
-    title: "Resistência Térmica",
-    description: "Isolamento avançado que se adapta à sua performance, protegendo do frio extremo sem superaquecer.",
+    icon: <Sun className="h-10 w-10 text-accent" />,
+    title: "Proteção UV Absoluta",
+    description: "Tecnologia de bloqueio solar de alto espectro integrada às fibras, protegendo sua pele durante as exposições mais intensas em grandes altitudes.",
   },
 ];
 
