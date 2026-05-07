@@ -2,15 +2,17 @@
 "use client";
 
 import Image from "next/image";
-import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { Button } from "@/components/ui/button";
 import { ArrowDown } from "lucide-react";
 import { useEffect, useState } from "react";
 
 export default function HeroSection() {
-  const heroImage = PlaceHolderImages.find(
-    (img) => img.id === "hero-background"
-  );
+  const heroImage = {
+    id: "hero-background",
+    description: "Fundo extremo Double Black Supply",
+    imageUrl: "https://i.imgur.com/YHouBjr.png",
+    imageHint: "extreme landscape"
+  };
   const [offsetY, setOffsetY] = useState(0);
 
   useEffect(() => {
@@ -26,24 +28,22 @@ export default function HeroSection() {
 
   return (
     <section className="relative h-[90vh] min-h-[600px] flex items-start justify-center text-center text-white overflow-hidden">
-      {heroImage && (
-        <div
-          className="absolute w-full h-[160%] -top-64"
-          style={{ transform: `translateY(${offsetY * 0.3}px)` }}
-        >
-          <Image
-            src={heroImage.imageUrl}
-            alt={heroImage.description}
-            fill
-            style={{ objectPosition: 'center top' }}
-            className="object-cover"
-            priority
-            data-ai-hint={heroImage.imageHint}
-          />
-        </div>
-      )}
+      <div
+        className="absolute w-full h-[160%] -top-64"
+        style={{ transform: `translateY(${offsetY * 0.3}px)` }}
+      >
+        <Image
+          src={heroImage.imageUrl}
+          alt={heroImage.description}
+          fill
+          style={{ objectPosition: 'center top' }}
+          className="object-cover"
+          priority
+          data-ai-hint={heroImage.imageHint}
+        />
+      </div>
       <div className="absolute inset-0 bg-black/20" />
-      <div className="relative z-10 p-4 container mx-auto pt-16 md:pt-24">
+      <div className="relative z-10 p-4 container mx-auto pt-24 md:pt-32">
         <h1 className="text-6xl md:text-8xl lg:text-9xl font-headline tracking-tight text-gradient-metallic py-4">
           Domine o Extremo
         </h1>
