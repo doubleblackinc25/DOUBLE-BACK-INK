@@ -28,8 +28,8 @@ export default function HeroSection() {
     <section className="relative h-[90vh] min-h-[600px] flex items-start justify-center text-center text-white overflow-hidden">
       {heroImage && (
         <div
-          className="absolute w-full h-[150%] -top-64"
-          style={{ transform: `translateY(${offsetY * 0.4}px)` }}
+          className="absolute w-full h-[160%] -top-96"
+          style={{ transform: `translateY(${offsetY * 0.3}px)` }}
         >
           <Image
             src={heroImage.imageUrl}
@@ -42,8 +42,8 @@ export default function HeroSection() {
           />
         </div>
       )}
-      <div className="absolute inset-0 bg-black/30" />
-      <div className="relative z-10 p-4 container mx-auto pt-48 md:pt-64">
+      <div className="absolute inset-0 bg-black/20" />
+      <div className="relative z-10 p-4 container mx-auto pt-64 md:pt-80">
         <h1 className="text-6xl md:text-8xl lg:text-9xl font-headline tracking-tight text-gradient-metallic py-4">
           Domine o Extremo
         </h1>
