@@ -12,19 +12,19 @@ const categories = [
     id: "limited-editions",
     title: "Edições Limitadas",
     description: "Protótipos exclusivos de tiragem mínima para exploradores de elite.",
-    className: "lg:col-span-2 lg:row-span-2 min-h-[500px] lg:min-h-full",
+    className: "lg:row-span-2 min-h-[500px] lg:min-h-[700px]",
   },
   {
     id: "urban-equipment",
     title: "Equipamento Urbano",
     description: "Design tático e funcional para a selva de pedra.",
-    className: "min-h-[300px]",
+    className: "min-h-[300px] lg:min-h-full",
   },
   {
     id: "performance-trail",
     title: "Performance Trail",
     description: "Domine qualquer terreno com engenharia de ponta.",
-    className: "min-h-[300px]",
+    className: "min-h-[300px] lg:min-h-full",
     objectPosition: "center 25%",
   },
 ];
@@ -32,7 +32,7 @@ const categories = [
 export default function ProductGrid() {
   return (
     <section className="container mx-auto py-20 sm:py-28 px-4 md:px-6">
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 auto-rows-fr">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 auto-rows-fr">
         {categories.map((category) => {
           const image = PlaceHolderImages.find((img) => img.id === category.id);
 
@@ -51,7 +51,7 @@ export default function ProductGrid() {
                     fill
                     style={{ objectPosition: category.objectPosition || 'center' }}
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 50vw"
                     data-ai-hint={image.imageHint}
                   />
                 )}
