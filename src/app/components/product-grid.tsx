@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState } from "react";
@@ -21,17 +22,14 @@ const categories = [
   {
     id: "limited-editions",
     title: "Edições Limitadas",
-    className: "col-span-1 md:row-span-2",
   },
   {
     id: "urban-equipment",
     title: "Equipamento Urbano",
-    className: "col-span-1 md:col-span-2",
   },
   {
     id: "performance-trail",
     title: "Performance Trail",
-    className: "col-span-1 md:col-span-2",
     objectPosition: "center 25%",
   },
 ];
@@ -52,7 +50,7 @@ export default function ProductGrid() {
 
   return (
     <section className="container mx-auto py-20 sm:py-28 px-4 md:px-6">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 auto-rows-auto">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {categories.map((category) => {
           const image = PlaceHolderImages.find((img) => img.id === category.id);
           const current = selections[category.id];
@@ -60,21 +58,18 @@ export default function ProductGrid() {
           return (
             <div
               key={category.id}
-              className={cn(
-                "group relative flex flex-col overflow-hidden rounded-lg border border-border bg-card/40 backdrop-blur-sm",
-                category.className
-              )}
+              className="group relative flex flex-col overflow-hidden rounded-lg border border-border bg-card/40 backdrop-blur-sm"
             >
               {/* Imagem e Overlay */}
-              <div className="relative aspect-[4/3] md:aspect-auto md:flex-grow overflow-hidden">
+              <div className="relative aspect-[4/5] overflow-hidden">
                 {image && (
                   <Image
                     src={image.imageUrl}
                     alt={image.description}
                     fill
-                    style={{ objectPosition: (category as any).objectPosition || 'center' }}
+                    style={{ objectPosition: category.objectPosition || 'center' }}
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
-                    sizes="(max-width: 768px) 100vw, 50vw"
+                    sizes="(max-width: 768px) 100vw, 33vw"
                     data-ai-hint={image.imageHint}
                   />
                 )}
