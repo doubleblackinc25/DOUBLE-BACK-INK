@@ -10,7 +10,7 @@ const specs = [
   },
   {
     icon: <Wind className="h-10 w-10 text-accent" />,
-    title: "Respirabilidade Extrema",
+    title: "Ventilação Extrema",
     description: "Tecnologia de microclima que garante uma refrescância contínua e rápida evaporação do suor, mantendo você revigorado mesmo sob esforço intenso.",
   },
   {
