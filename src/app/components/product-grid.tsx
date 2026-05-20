@@ -12,19 +12,19 @@ const categories = [
     id: "limited-editions",
     title: "Edições Limitadas",
     description: "Protótipos exclusivos de tiragem mínima para exploradores de elite.",
-    className: "lg:row-span-2 min-h-[500px] lg:min-h-[700px]",
+    className: "lg:col-start-1 lg:row-start-1 lg:row-span-2 min-h-[500px] lg:min-h-[700px]",
   },
   {
     id: "urban-equipment",
     title: "Equipamento Urbano",
     description: "Design tático e funcional para a selva de pedra.",
-    className: "min-h-[300px] lg:min-h-full",
+    className: "lg:col-start-2 lg:row-start-1 min-h-[300px]",
   },
   {
     id: "performance-trail",
     title: "Performance Trail",
     description: "Domine qualquer terreno com engenharia de ponta.",
-    className: "min-h-[300px] lg:min-h-full",
+    className: "lg:col-start-2 lg:row-start-2 min-h-[300px]",
     objectPosition: "center 25%",
   },
 ];
@@ -32,7 +32,7 @@ const categories = [
 export default function ProductGrid() {
   return (
     <section className="container mx-auto py-20 sm:py-28 px-4 md:px-6">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:grid-rows-2">
+      <div className="grid grid-cols-1 lg:grid-cols-2 lg:grid-rows-2 gap-8">
         {categories.map((category) => {
           const image = PlaceHolderImages.find((img) => img.id === category.id);
 
