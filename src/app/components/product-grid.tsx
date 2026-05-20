@@ -32,7 +32,7 @@ const categories = [
 export default function ProductGrid() {
   return (
     <section className="container mx-auto py-20 sm:py-28 px-4 md:px-6">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 auto-rows-fr">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:grid-rows-2">
         {categories.map((category) => {
           const image = PlaceHolderImages.find((img) => img.id === category.id);
 
