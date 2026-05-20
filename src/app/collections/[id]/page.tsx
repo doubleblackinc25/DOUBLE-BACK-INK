@@ -1,17 +1,41 @@
 
+"use client";
+
+import { useState, use } from "react";
 import Header from "@/app/components/header";
 import Footer from "@/app/components/footer";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, ShoppingCart, ShieldCheck } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import { Label } from "@/components/ui/label";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { PlaceHolderImages } from "@/lib/placeholder-images";
+import { cn } from "@/lib/utils";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+
+const sizes = ["P", "M", "G", "GG", "XG"];
+const colors = [
+  { name: "Obsidian Black", hex: "#000000" },
+  { name: "Stealth Gray", hex: "#333333" },
+  { name: "Blaze Orange", hex: "#f27121" },
+];
 
 type Props = {
   params: Promise<{ id: string }>;
 };
 
-export default async function CollectionPage({ params }: Props) {
-  const { id } = await params;
-  
+export default function CollectionPage({ params }: Props) {
+  const { id } = use(params);
+  const [selectedSize, setSelectedSize] = useState("M");
+  const [selectedColor, setSelectedColor] = useState(colors[0].name);
+
   const categoryNames: Record<string, string> = {
     "limited-editions": "Edições Limitadas",
     "urban-equipment": "Equipamento Urbano",
@@ -19,6 +43,18 @@ export default async function CollectionPage({ params }: Props) {
   };
 
   const title = categoryNames[id] || "Coleção";
+
+  const baseProductImage = PlaceHolderImages.find((img) => img.id === id) || {
+    imageUrl: "https://picsum.photos/seed/product/800/1000",
+    description: "Product View",
+    imageHint: "technical product"
+  };
+
+  const productViews = [
+    { ...baseProductImage, id: "view-1" },
+    { imageUrl: "https://picsum.photos/seed/view2/800/1000", description: "Side View", imageHint: "product side", id: "view-2" },
+    { imageUrl: "https://picsum.photos/seed/view3/800/1000", description: "Detail View", imageHint: "product detail", id: "view-3" },
+  ];
 
   return (
     <div className="flex flex-col min-h-screen bg-background text-foreground">
@@ -34,31 +70,145 @@ export default async function CollectionPage({ params }: Props) {
             {title}
           </h1>
           <p className="mt-6 text-muted-foreground text-lg md:text-xl max-w-3xl font-body leading-relaxed">
-            Explorando os limites da engenharia têxtil. Nossa linha de {title.toLowerCase()} é construída para aqueles que exigem nada menos que a perfeição técnica em cada fibra.
+            Explorando os limites da engenharia têxtil. Nossa linha de {title.toLowerCase()} é construída para aqueles que exigem nada menos que a perfeição de alta performance em cada fibra.
           </p>
         </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 py-12">
-            {[1, 2, 3].map((i) => (
-                <Link key={i} href={`/products/db-x${i}`} className="group block">
-                  <div className="bg-secondary/10 border-2 border-border/50 rounded-lg h-[450px] flex flex-col items-center justify-center p-8 text-center space-y-6 transition-all hover:border-accent/50 hover:bg-secondary/20">
-                      <div className="w-24 h-24 bg-accent/10 rounded-full flex items-center justify-center group-hover:bg-accent/20 transition-colors">
-                          <span className="text-accent text-3xl font-bold tracking-tighter">DB-X{i}</span>
+
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 items-start py-8">
+          {/* Lado Esquerdo: Carrossel de Imagens */}
+          <div className="space-y-6">
+            <Carousel className="w-full">
+              <CarouselContent>
+                {productViews.map((view, index) => (
+                  <CarouselItem key={view.id}>
+                    <div className="relative aspect-[4/5] overflow-hidden rounded-lg border-2 border-border bg-secondary/10">
+                      <Image
+                        src={view.imageUrl}
+                        alt={view.description}
+                        fill
+                        className="object-cover"
+                        priority={index === 0}
+                        data-ai-hint={view.imageHint}
+                      />
+                      <div className="absolute top-4 left-4 bg-accent text-accent-foreground px-3 py-1 text-xs font-bold uppercase tracking-widest rounded-full">
+                        Protótipo {id.replace('-', ' ').toUpperCase()}
                       </div>
-                      <div className="space-y-2">
-                          <h3 className="text-2xl font-logo tracking-widest uppercase">Protótipo em Teste</h3>
-                          <p className="text-muted-foreground font-body">
-                              Sendo submetido a condições extremas em laboratório. O futuro da performance Double Black chega em breve.
-                          </p>
-                      </div>
-                      <div className="pt-4">
-                          <span className="text-xs uppercase tracking-[0.3em] text-accent font-bold px-4 py-2 border border-accent/30 rounded-full">
-                              Ver Detalhes
-                          </span>
-                      </div>
-                  </div>
-                </Link>
-            ))}
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              {/* Setas de navegação centralizadas abaixo da imagem */}
+              <div className="flex justify-center gap-6 mt-8">
+                <CarouselPrevious className="static translate-y-0 h-12 w-12 border-2 border-border hover:border-accent hover:text-accent bg-transparent" />
+                <CarouselNext className="static translate-y-0 h-12 w-12 border-2 border-border hover:border-accent hover:text-accent bg-transparent" />
+              </div>
+            </Carousel>
+          </div>
+
+          {/* Lado Direito: Detalhes e Seleção */}
+          <div className="flex flex-col space-y-10">
+            <div className="space-y-4">
+              <h2 className="text-3xl md:text-4xl font-logo uppercase tracking-tight text-white">
+                DNA de Alta Performance
+              </h2>
+              <p className="text-lg text-muted-foreground font-body leading-relaxed">
+                Este protótipo foi submetido a condições extremas. Escolha suas especificações para a reserva do lote de teste.
+              </p>
+            </div>
+
+            <div className="space-y-8 pt-8 border-t border-border">
+              {/* Seleção de Cor */}
+              <div className="space-y-4">
+                <Label className="text-sm uppercase tracking-widest text-muted-foreground">Cor Técnica</Label>
+                <RadioGroup 
+                  defaultValue={selectedColor} 
+                  onValueChange={setSelectedColor}
+                  className="flex gap-4"
+                >
+                  {colors.map((color) => (
+                    <div key={color.name} className="flex items-center space-x-2">
+                      <RadioGroupItem
+                        value={color.name}
+                        id={`color-${color.name}`}
+                        className="peer sr-only"
+                      />
+                      <Label
+                        htmlFor={`color-${color.name}`}
+                        className={cn(
+                          "w-12 h-12 rounded-full border-2 border-transparent cursor-pointer transition-all flex items-center justify-center p-0.5",
+                          selectedColor === color.name ? "border-accent scale-110" : "hover:border-white/50"
+                        )}
+                        title={color.name}
+                      >
+                        <span 
+                          className="w-full h-full rounded-full shadow-inner border border-white/10" 
+                          style={{ backgroundColor: color.hex }}
+                        />
+                      </Label>
+                    </div>
+                  ))}
+                </RadioGroup>
+                <p className="text-xs font-bold text-accent uppercase tracking-tighter">{selectedColor}</p>
+              </div>
+
+              {/* Seleção de Tamanho */}
+              <div className="space-y-4">
+                <div className="flex justify-between items-end">
+                  <Label className="text-sm uppercase tracking-widest text-muted-foreground">Tamanho</Label>
+                  <span className="text-xs text-muted-foreground underline cursor-pointer hover:text-accent">Guia de Medidas</span>
+                </div>
+                <RadioGroup 
+                  defaultValue={selectedSize} 
+                  onValueChange={setSelectedSize}
+                  className="flex flex-wrap gap-3"
+                >
+                  {sizes.map((size) => (
+                    <div key={size}>
+                      <RadioGroupItem
+                        value={size}
+                        id={`size-${size}`}
+                        className="peer sr-only"
+                      />
+                      <Label
+                        htmlFor={`size-${size}`}
+                        className={cn(
+                          "flex h-12 w-16 items-center justify-center rounded-md border-2 border-border bg-secondary/10 text-sm font-bold uppercase transition-all cursor-pointer",
+                          "peer-data-[state=checked]:border-accent peer-data-[state=checked]:bg-accent peer-data-[state=checked]:text-accent-foreground",
+                          "hover:bg-secondary/30"
+                        )}
+                      >
+                        {size}
+                      </Label>
+                    </div>
+                  ))}
+                </RadioGroup>
+              </div>
+
+              {/* Botão de Ação */}
+              <div className="space-y-4 pt-4">
+                <Button variant="accent" size="lg" className="w-full h-16 text-lg font-headline uppercase tracking-widest group">
+                  <ShoppingCart className="mr-2 h-6 w-6 transition-transform group-hover:-translate-y-1" />
+                  Reservar Protótipo {id.split('-')[0].toUpperCase()}
+                </Button>
+                
+                <div className="flex items-center justify-center gap-2 text-muted-foreground text-sm font-body">
+                  <ShieldCheck className="h-4 w-4 text-accent" />
+                  Garantia Vitalícia Double Black
+                </div>
+              </div>
+            </div>
+
+            {/* Sumário Técnico */}
+            <div className="bg-secondary/20 p-8 rounded-lg border-2 border-border/50">
+              <h3 className="font-logo uppercase tracking-widest text-sm mb-6">Especificações do Protótipo</h3>
+              <ul className="grid grid-cols-2 gap-y-4 gap-x-6 text-xs font-body text-muted-foreground uppercase tracking-widest">
+                <li className="flex items-center gap-2"><span className="w-1 h-1 bg-accent rounded-full" /> Membrana Carbon-X</li>
+                <li className="flex items-center gap-2"><span className="w-1 h-1 bg-accent rounded-full" /> Costuras Termoseladas</li>
+                <li className="flex items-center gap-2"><span className="w-1 h-1 bg-accent rounded-full" /> Ventilação Dinâmica</li>
+                <li className="flex items-center gap-2"><span className="w-1 h-1 bg-accent rounded-full" /> Ultra-Leve: 320g</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </main>
       <Footer />
