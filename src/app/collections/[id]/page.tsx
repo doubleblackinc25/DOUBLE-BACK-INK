@@ -40,22 +40,24 @@ export default async function CollectionPage({ params }: Props) {
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 py-12">
             {[1, 2, 3].map((i) => (
-                <div key={i} className="group bg-secondary/10 border-2 border-border/50 rounded-lg h-[450px] flex flex-col items-center justify-center p-8 text-center space-y-6 transition-all hover:border-accent/50 hover:bg-secondary/20">
-                    <div className="w-24 h-24 bg-accent/10 rounded-full flex items-center justify-center group-hover:bg-accent/20 transition-colors">
-                        <span className="text-accent text-3xl font-bold tracking-tighter">DB-X{i}</span>
-                    </div>
-                    <div className="space-y-2">
-                        <h3 className="text-2xl font-logo tracking-widest uppercase">Protótipo em Teste</h3>
-                        <p className="text-muted-foreground font-body">
-                            Sendo submetido a condições extremas em laboratório. O futuro da performance Double Black chega em breve.
-                        </p>
-                    </div>
-                    <div className="pt-4">
-                        <span className="text-xs uppercase tracking-[0.3em] text-accent font-bold px-4 py-2 border border-accent/30 rounded-full">
-                            Classificado
-                        </span>
-                    </div>
-                </div>
+                <Link key={i} href={`/products/db-x${i}`} className="group block">
+                  <div className="bg-secondary/10 border-2 border-border/50 rounded-lg h-[450px] flex flex-col items-center justify-center p-8 text-center space-y-6 transition-all hover:border-accent/50 hover:bg-secondary/20">
+                      <div className="w-24 h-24 bg-accent/10 rounded-full flex items-center justify-center group-hover:bg-accent/20 transition-colors">
+                          <span className="text-accent text-3xl font-bold tracking-tighter">DB-X{i}</span>
+                      </div>
+                      <div className="space-y-2">
+                          <h3 className="text-2xl font-logo tracking-widest uppercase">Protótipo em Teste</h3>
+                          <p className="text-muted-foreground font-body">
+                              Sendo submetido a condições extremas em laboratório. O futuro da performance Double Black chega em breve.
+                          </p>
+                      </div>
+                      <div className="pt-4">
+                          <span className="text-xs uppercase tracking-[0.3em] text-accent font-bold px-4 py-2 border border-accent/30 rounded-full">
+                              Ver Detalhes
+                          </span>
+                      </div>
+                  </div>
+                </Link>
             ))}
         </div>
       </main>
