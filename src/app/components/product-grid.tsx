@@ -21,6 +21,7 @@ const categories = [
     id: "performance-trail",
     title: "Performance Trail",
     className: "col-span-1 md:col-span-2",
+    objectPosition: "center 25%", // Abaixa a imagem mostrando mais a parte superior
   },
 ];
 
@@ -43,6 +44,7 @@ export default function ProductGrid() {
                   src={image.imageUrl}
                   alt={image.description}
                   fill
+                  style={{ objectPosition: (category as any).objectPosition || 'center' }}
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   data-ai-hint={image.imageHint}
