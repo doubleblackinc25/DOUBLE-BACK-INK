@@ -12,19 +12,19 @@ const categories = [
     id: "limited-editions",
     title: "Edições Limitadas",
     description: "Protótipos exclusivos de tiragem mínima para exploradores de elite.",
-    className: "lg:col-span-2 lg:row-span-2",
+    className: "lg:col-span-2 lg:row-span-2 min-h-[500px] lg:min-h-full",
   },
   {
     id: "urban-equipment",
     title: "Equipamento Urbano",
     description: "Design tático e funcional para a selva de pedra.",
-    className: "",
+    className: "min-h-[300px]",
   },
   {
     id: "performance-trail",
     title: "Performance Trail",
     description: "Domine qualquer terreno com engenharia de ponta.",
-    className: "",
+    className: "min-h-[300px]",
     objectPosition: "center 25%",
   },
 ];
@@ -32,7 +32,7 @@ const categories = [
 export default function ProductGrid() {
   return (
     <section className="container mx-auto py-20 sm:py-28 px-4 md:px-6">
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 auto-rows-fr">
         {categories.map((category) => {
           const image = PlaceHolderImages.find((img) => img.id === category.id);
 
@@ -40,7 +40,7 @@ export default function ProductGrid() {
             <Link
               key={category.id}
               href={`/collections/${category.id}`}
-              className={`group relative flex flex-col overflow-hidden rounded-lg border border-border bg-card/40 backdrop-blur-sm transition-all hover:border-accent/50 min-h-[400px] ${category.className}`}
+              className={`group relative flex flex-col overflow-hidden rounded-lg border border-border bg-card/40 backdrop-blur-sm transition-all hover:border-accent/50 ${category.className}`}
             >
               {/* Imagem e Overlay */}
               <div className="relative w-full h-full overflow-hidden flex-grow">
