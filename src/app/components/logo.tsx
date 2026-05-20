@@ -15,12 +15,12 @@ export default function Logo({ className }: { className?: string }) {
     >
       <div className="relative w-12 h-12 md:w-20 md:h-20 shrink-0 bg-transparent flex items-center justify-center">
         <Image
-          src="https://res.cloudinary.com/dxfjl4kds/image/upload/f_auto,q_auto/ChatGPT_Image_6_de_mai._de_2026_14_10_12_a1i50b"
+          src="https://i.imgur.com/Q6yxaW3.png"
           alt="Double Black inc Logo"
           fill
           className="object-contain"
           priority
-          data-ai-hint="metallic diamond"
+          data-ai-hint="brand logo"
         />
       </div>
       <div className="flex items-center">
