@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState } from "react";
@@ -94,7 +93,7 @@ export default function ProductGrid() {
                 </div>
               </div>
 
-              {/* Controles de Seleção Integrados */}
+              {/* Controles de Seleção Integrados na Base */}
               <div className="p-6 space-y-6 bg-secondary/10">
                 <div className="flex justify-between items-center gap-4">
                   <div className="space-y-2">
