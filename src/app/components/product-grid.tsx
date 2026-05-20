@@ -2,6 +2,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { cn } from "@/lib/utils";
 import { ArrowRight } from "lucide-react";
@@ -62,7 +63,11 @@ export default function ProductGrid() {
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </div>
               </div>
-              <a href="#" className="absolute inset-0" aria-label={`View ${category.id}`}></a>
+              <Link 
+                href={`/collections/${category.id}`} 
+                className="absolute inset-0" 
+                aria-label={`Ver coleção ${category.title}`}
+              />
             </div>
           );
         })}
