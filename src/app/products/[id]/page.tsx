@@ -12,6 +12,13 @@ import Link from "next/link";
 import Image from "next/image";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { cn } from "@/lib/utils";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 const sizes = ["P", "M", "G", "GG", "XG"];
 const colors = [
@@ -25,11 +32,18 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
   const [selectedSize, setSelectedSize] = useState("M");
   const [selectedColor, setSelectedColor] = useState(colors[0].name);
 
-  const productImage = PlaceHolderImages.find((img) => img.id === "limited-editions") || {
+  const baseProductImage = PlaceHolderImages.find((img) => img.id === "limited-editions") || {
     imageUrl: "https://picsum.photos/seed/product/800/1000",
     description: "Product View",
     imageHint: "technical product"
   };
+
+  // Mocking multiple views for the carousel
+  const productViews = [
+    { ...baseProductImage, id: "view-1" },
+    { imageUrl: "https://picsum.photos/seed/view2/800/1000", description: "Side View", imageHint: "product side", id: "view-2" },
+    { imageUrl: "https://picsum.photos/seed/view3/800/1000", description: "Detail View", imageHint: "product detail", id: "view-3" },
+  ];
 
   return (
     <div className="flex flex-col min-h-screen bg-background text-foreground">
@@ -42,21 +56,36 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
         </Button>
 
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-24">
-          {/* Image Gallery Mock */}
-          <div className="space-y-4">
-            <div className="relative aspect-[4/5] overflow-hidden rounded-lg border border-border bg-secondary/10">
-              <Image
-                src={productImage.imageUrl}
-                alt={productImage.description}
-                fill
-                className="object-cover"
-                priority
-                data-ai-hint={productImage.imageHint}
-              />
-              <div className="absolute top-4 left-4 bg-accent text-accent-foreground px-3 py-1 text-xs font-bold uppercase tracking-widest rounded-full">
-                Protótipo {id.toUpperCase()}
+          {/* Image Carousel */}
+          <div className="space-y-6">
+            <Carousel className="w-full">
+              <CarouselContent>
+                {productViews.map((view, index) => (
+                  <CarouselItem key={view.id}>
+                    <div className="relative aspect-[4/5] overflow-hidden rounded-lg border border-border bg-secondary/10">
+                      <Image
+                        src={view.imageUrl}
+                        alt={view.description}
+                        fill
+                        className="object-cover"
+                        priority={index === 0}
+                        data-ai-hint={view.imageHint}
+                      />
+                      {index === 0 && (
+                        <div className="absolute top-4 left-4 bg-accent text-accent-foreground px-3 py-1 text-xs font-bold uppercase tracking-widest rounded-full">
+                          Protótipo {id.toUpperCase()}
+                        </div>
+                      )}
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              {/* Navigation arrows positioned below the image */}
+              <div className="flex justify-center gap-6 mt-6">
+                <CarouselPrevious className="static translate-y-0 h-12 w-12 border-2 border-border hover:border-accent hover:text-accent bg-transparent" />
+                <CarouselNext className="static translate-y-0 h-12 w-12 border-2 border-border hover:border-accent hover:text-accent bg-transparent" />
               </div>
-            </div>
+            </Carousel>
           </div>
 
           {/* Product Details */}
