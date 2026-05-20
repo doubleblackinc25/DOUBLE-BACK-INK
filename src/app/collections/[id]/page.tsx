@@ -69,9 +69,6 @@ export default function CollectionPage({ params }: Props) {
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-headline text-gradient-metallic uppercase tracking-tight">
             {title}
           </h1>
-          <p className="mt-6 text-muted-foreground text-lg md:text-xl max-w-3xl font-body leading-relaxed">
-            Explorando os limites da engenharia têxtil. Nossa linha de {title.toLowerCase()} é construída para aqueles que exigem nada menos que a perfeição de alta performance em cada fibra.
-          </p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 items-start py-8">
@@ -81,7 +78,7 @@ export default function CollectionPage({ params }: Props) {
               <CarouselContent>
                 {productViews.map((view, index) => (
                   <CarouselItem key={view.id}>
-                    <div className="relative aspect-[4/5] overflow-hidden rounded-lg border-2 border-border bg-secondary/10">
+                    <div className="relative aspect-[4/5] overflow-hidden rounded-lg border-2 border-border bg-secondary/10 shadow-2xl">
                       <Image
                         src={view.imageUrl}
                         alt={view.description}
@@ -112,7 +109,7 @@ export default function CollectionPage({ params }: Props) {
                 DNA de Alta Performance
               </h2>
               <p className="text-lg text-muted-foreground font-body leading-relaxed">
-                Este protótipo foi submetido a condições extremas. Escolha suas especificações para a reserva do lote de teste.
+                Este protótipo foi projetado para ambientes de alta performance. Configure suas especificações abaixo para a reserva.
               </p>
             </div>
 
@@ -126,24 +123,16 @@ export default function CollectionPage({ params }: Props) {
                   className="flex gap-4"
                 >
                   {colors.map((color) => (
-                    <div key={color.name} className="flex items-center space-x-2">
-                      <RadioGroupItem
-                        value={color.name}
-                        id={`color-${color.name}`}
-                        className="peer sr-only"
-                      />
+                    <div key={color.name}>
+                      <RadioGroupItem value={color.name} id={`color-${color.name}`} className="sr-only" />
                       <Label
                         htmlFor={`color-${color.name}`}
                         className={cn(
-                          "w-12 h-12 rounded-full border-2 border-transparent cursor-pointer transition-all flex items-center justify-center p-0.5",
+                          "w-12 h-12 rounded-full border-2 border-transparent cursor-pointer transition-all flex items-center justify-center p-0.5 shadow-lg",
                           selectedColor === color.name ? "border-accent scale-110" : "hover:border-white/50"
                         )}
-                        title={color.name}
                       >
-                        <span 
-                          className="w-full h-full rounded-full shadow-inner border border-white/10" 
-                          style={{ backgroundColor: color.hex }}
-                        />
+                        <span className="w-full h-full rounded-full" style={{ backgroundColor: color.hex }} />
                       </Label>
                     </div>
                   ))}
@@ -153,10 +142,7 @@ export default function CollectionPage({ params }: Props) {
 
               {/* Seleção de Tamanho */}
               <div className="space-y-4">
-                <div className="flex justify-between items-end">
-                  <Label className="text-sm uppercase tracking-widest text-muted-foreground">Tamanho</Label>
-                  <span className="text-xs text-muted-foreground underline cursor-pointer hover:text-accent">Guia de Medidas</span>
-                </div>
+                <Label className="text-sm uppercase tracking-widest text-muted-foreground">Tamanho</Label>
                 <RadioGroup 
                   defaultValue={selectedSize} 
                   onValueChange={setSelectedSize}
@@ -164,17 +150,12 @@ export default function CollectionPage({ params }: Props) {
                 >
                   {sizes.map((size) => (
                     <div key={size}>
-                      <RadioGroupItem
-                        value={size}
-                        id={`size-${size}`}
-                        className="peer sr-only"
-                      />
+                      <RadioGroupItem value={size} id={`size-${size}`} className="sr-only" />
                       <Label
                         htmlFor={`size-${size}`}
                         className={cn(
                           "flex h-12 w-16 items-center justify-center rounded-md border-2 border-border bg-secondary/10 text-sm font-bold uppercase transition-all cursor-pointer",
-                          "peer-data-[state=checked]:border-accent peer-data-[state=checked]:bg-accent peer-data-[state=checked]:text-accent-foreground",
-                          "hover:bg-secondary/30"
+                          selectedSize === size ? "border-accent bg-accent text-accent-foreground" : "hover:bg-secondary/30"
                         )}
                       >
                         {size}
@@ -188,7 +169,7 @@ export default function CollectionPage({ params }: Props) {
               <div className="space-y-4 pt-4">
                 <Button variant="accent" size="lg" className="w-full h-16 text-lg font-headline uppercase tracking-widest group">
                   <ShoppingCart className="mr-2 h-6 w-6 transition-transform group-hover:-translate-y-1" />
-                  Reservar Protótipo {id.split('-')[0].toUpperCase()}
+                  Reservar Protótipo
                 </Button>
                 
                 <div className="flex items-center justify-center gap-2 text-muted-foreground text-sm font-body">
@@ -196,17 +177,6 @@ export default function CollectionPage({ params }: Props) {
                   Garantia Vitalícia Double Black
                 </div>
               </div>
-            </div>
-
-            {/* Sumário Técnico */}
-            <div className="bg-secondary/20 p-8 rounded-lg border-2 border-border/50">
-              <h3 className="font-logo uppercase tracking-widest text-sm mb-6">Especificações do Protótipo</h3>
-              <ul className="grid grid-cols-2 gap-y-4 gap-x-6 text-xs font-body text-muted-foreground uppercase tracking-widest">
-                <li className="flex items-center gap-2"><span className="w-1 h-1 bg-accent rounded-full" /> Membrana Carbon-X</li>
-                <li className="flex items-center gap-2"><span className="w-1 h-1 bg-accent rounded-full" /> Costuras Termoseladas</li>
-                <li className="flex items-center gap-2"><span className="w-1 h-1 bg-accent rounded-full" /> Ventilação Dinâmica</li>
-                <li className="flex items-center gap-2"><span className="w-1 h-1 bg-accent rounded-full" /> Ultra-Leve: 320g</li>
-              </ul>
             </div>
           </div>
         </div>
