@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useFormState, useFormStatus } from "react-dom";
@@ -87,7 +88,7 @@ export function CopyForm() {
             </div>
             <div className="space-y-2">
               <Label htmlFor="productFeatures">Características do Produto</Label>
-              <Textarea id="productFeatures" name="productFeatures" placeholder="Descreva funcionalidades, materiais e especificações técnicas..." required rows={5} className="bg-background/50" />
+              <Textarea id="productFeatures" name="productFeatures" placeholder="Descreva funcionalidades, materiais e especificações de alta performance..." required rows={5} className="bg-background/50" />
               {state.fieldErrors?.productFeatures && <p className="text-destructive text-sm">{state.fieldErrors.productFeatures}</p>}
             </div>
             <div className="space-y-2">

@@ -48,7 +48,7 @@ export default function HeroSection() {
           Domine o Extremo
         </h1>
         <p className="mt-6 max-w-2xl mx-auto text-lg md:text-xl text-neutral-300 drop-shadow-md font-medium">
-          Roupas técnicas para quem faz da trilha impossível o seu quintal.
+          Roupas de alta performance para quem faz da trilha impossível o seu quintal.
         </p>
         <div className="mt-12">
           <Button
