@@ -7,12 +7,12 @@ export default function Logo({ className }: { className?: string }) {
     <Link
       href="/"
       className={cn(
-        "flex items-center transition-opacity hover:opacity-80 py-1 shrink-0",
+        "flex items-center transition-opacity hover:opacity-80 py-1 shrink-0 gap-3 md:gap-4",
         className
       )}
       aria-label="Double Black inc Home"
     >
-      <div className="relative w-40 h-10 md:w-64 md:h-16 shrink-0">
+      <div className="relative w-12 h-12 md:w-16 md:h-16 shrink-0">
         <Image
           src="https://i.imgur.com/5mWuIcM.png"
           alt="Double Black inc Logo"
@@ -22,6 +22,9 @@ export default function Logo({ className }: { className?: string }) {
           data-ai-hint="brand logo"
         />
       </div>
+      <span className="text-2xl md:text-4xl font-logo tracking-tighter text-gradient-metallic pt-1">
+        Double Black inc.
+      </span>
     </Link>
   );
 }
