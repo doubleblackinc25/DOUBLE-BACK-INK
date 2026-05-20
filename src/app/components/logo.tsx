@@ -7,7 +7,7 @@ export default function Logo({ className }: { className?: string }) {
     <Link
       href="/"
       className={cn(
-        "flex items-center transition-opacity hover:opacity-80 py-1 shrink-0 gap-2 md:gap-3",
+        "flex items-center transition-opacity hover:opacity-80 py-1 shrink-0 gap-1 md:gap-2",
         className
       )}
       aria-label="Double Black inc Home"
