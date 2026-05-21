@@ -145,7 +145,7 @@ export default function CollectionPage({ params }: Props) {
               {/* Seleção de Cor */}
               <div className="space-y-4">
                 <Label className="text-sm uppercase tracking-widest text-muted-foreground">
-                  {id === "performance-trail" ? "STEALTH CAMO" : "Estilo Técnico"}
+                  {id === "performance-trail" ? "STEALTH CAMO" : "DB SIGNATURE SERIES"}
                 </Label>
                 <RadioGroup 
                   value={selectedColor} 

@@ -129,7 +129,7 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
               {/* Color Selection */}
               <div className="space-y-4">
                 <Label className="text-sm uppercase tracking-widest text-muted-foreground">
-                  {id.includes("trail") ? "STEALTH CAMO" : "Estilo Técnico"}
+                  {id.includes("trail") ? "STEALTH CAMO" : "DB SIGNATURE SERIES"}
                 </Label>
                 <RadioGroup 
                   value={selectedColor} 
