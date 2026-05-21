@@ -1,3 +1,4 @@
+
 "use client";
 
 import Header from "@/app/components/header";
@@ -10,7 +11,7 @@ import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { Separator } from "@/components/ui/separator";
 
 export default function CartPage() {
-  // Mock de dados para o carrinho
+  // Mock de dados para o carrinho sincronizado com as coleções
   const cartItems = [
     {
       id: "limited-editions",
@@ -23,10 +24,10 @@ export default function CartPage() {
     },
     {
       id: "performance-trail",
-      name: "Corta Vento Stealth",
+      name: "Protótipo Performance Trail",
       collection: "Performance Trail",
       size: "M",
-      color: "Blaze Orange",
+      color: "Stealth Gray Camo",
       price: "R$ 650,00",
       image: PlaceHolderImages.find(img => img.id === "performance-trail")?.imageUrl || "https://picsum.photos/seed/product2/200/250"
     }
