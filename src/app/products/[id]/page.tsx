@@ -37,16 +37,16 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
     imageHint: "technical product"
   };
 
-  // Mocking multiple views for the carousel
   const productViews = [
-    { ...baseProductImage, id: "view-1" },
+    { ...baseProductImage, id: "view-1", position: "center 30%" },
     { 
       imageUrl: id.includes("trail") ? "https://i.imgur.com/zTLskGD.png" : "https://picsum.photos/seed/view2/800/1000", 
       description: "Side View", 
       imageHint: "product side", 
-      id: "view-2" 
+      id: "view-2",
+      position: id.includes("trail") ? "center 15%" : "center"
     },
-    { imageUrl: "https://picsum.photos/seed/view3/800/1000", description: "Detail View", imageHint: "product detail", id: "view-3" },
+    { imageUrl: "https://picsum.photos/seed/view3/800/1000", description: "Detail View", imageHint: "product detail", id: "view-3", position: "center" },
   ];
 
   return (
@@ -72,6 +72,7 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
                         alt={view.description}
                         fill
                         className="object-cover"
+                        style={{ objectPosition: view.position }}
                         priority={index === 0}
                         data-ai-hint={view.imageHint}
                       />
