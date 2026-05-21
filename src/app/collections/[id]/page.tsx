@@ -125,7 +125,7 @@ export default function CollectionPage({ params }: Props) {
                 <RadioGroup 
                   value={selectedColor} 
                   onValueChange={setSelectedColor}
-                  className="flex flex-col gap-2"
+                  className="flex flex-col items-start gap-4"
                 >
                   {colors.map((color) => (
                     <div key={color.name} className="flex flex-col items-start gap-3">
@@ -133,29 +133,29 @@ export default function CollectionPage({ params }: Props) {
                       <Label
                         htmlFor={`color-${color.name}`}
                         className={cn(
-                          "w-14 h-14 rounded-full border-2 border-transparent cursor-pointer transition-all flex items-center justify-center p-0.5 shadow-lg overflow-hidden",
-                          selectedColor === color.name ? "border-accent scale-110" : "hover:border-white/50"
+                          "w-16 h-16 rounded-full border-2 border-transparent cursor-pointer transition-all flex items-center justify-center p-0.5 shadow-[0_0_20px_rgba(0,0,0,0.5)] overflow-hidden",
+                          selectedColor === color.name ? "border-accent scale-110 shadow-accent/20" : "hover:border-white/50"
                         )}
                       >
                         <span 
                           className="w-full h-full rounded-full" 
                           style={{ 
-                            backgroundColor: '#3f4441',
+                            backgroundColor: '#3a3e3c',
                             backgroundImage: `
-                              radial-gradient(circle at 12% 18%, #4b514d 22%, transparent 22.5%),
-                              radial-gradient(circle at 82% 12%, #282c2a 28%, transparent 28.5%),
-                              radial-gradient(circle at 48% 52%, #5a5e5b 32%, transparent 32.5%),
-                              radial-gradient(circle at 18% 82%, #282c2a 24%, transparent 24.5%),
-                              radial-gradient(circle at 88% 88%, #4b514d 20%, transparent 20.5%),
-                              radial-gradient(circle at 68% 58%, #5a5e5b 27%, transparent 27.5%),
-                              radial-gradient(circle at 28% 28%, #282c2a 17%, transparent 17.5%),
-                              repeating-linear-gradient(45deg, rgba(0,0,0,0.05), rgba(0,0,0,0.05) 1px, transparent 1px, transparent 2px)
+                              radial-gradient(ellipse at 15% 25%, #4b514d 35%, transparent 36%),
+                              radial-gradient(ellipse at 85% 15%, #2a2e2c 45%, transparent 46%),
+                              radial-gradient(circle at 50% 55%, #5a5e5b 40%, transparent 41%),
+                              radial-gradient(ellipse at 25% 75%, #1a1c1b 38%, transparent 39%),
+                              radial-gradient(circle at 75% 85%, #2a2e2c 30%, transparent 31%),
+                              radial-gradient(ellipse at 65% 35%, #4b514d 32%, transparent 33%),
+                              radial-gradient(circle at 10% 90%, #5a5e5b 28%, transparent 29%),
+                              repeating-linear-gradient(135deg, rgba(255,255,255,0.02) 0px, rgba(255,255,255,0.02) 1px, transparent 1px, transparent 4px)
                             `,
                             backgroundBlendMode: 'normal'
                           }} 
                         />
                       </Label>
-                      <span className="text-xs font-bold text-accent uppercase tracking-widest">{color.name}</span>
+                      <span className="text-xs font-bold text-accent uppercase tracking-[0.2em]">{color.name}</span>
                     </div>
                   ))}
                 </RadioGroup>
