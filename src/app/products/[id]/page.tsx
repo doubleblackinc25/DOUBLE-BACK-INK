@@ -37,7 +37,7 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
   };
 
   const productViews = [
-    { ...baseProductImage, id: "view-1", position: id.includes("limited") ? "center 40%" : "center 30%" },
+    { ...baseProductImage, id: "view-1", position: id.includes("limited") ? "center 15%" : "center 30%" },
     { 
       imageUrl: id.includes("trail") ? "https://i.imgur.com/zTLskGD.png" : "https://picsum.photos/seed/view2/800/1000", 
       description: "Side View", 
