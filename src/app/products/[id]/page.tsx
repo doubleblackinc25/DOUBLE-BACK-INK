@@ -22,9 +22,7 @@ import {
 
 const sizes = ["P", "M", "G", "GG", "XG"];
 const colors = [
-  { name: "Obsidian Black", hex: "#000000" },
-  { name: "Stealth Gray", hex: "#333333" },
-  { name: "Blaze Orange", hex: "#f27121" },
+  { name: "STEALTH GRAY CAMO", hex: "#3f4441" },
 ];
 
 export default function ProductPage({ params }: { params: Promise<{ id: string }> }) {
@@ -110,12 +108,12 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
               <div className="space-y-4">
                 <Label className="text-sm uppercase tracking-widest text-muted-foreground">Cor Técnica</Label>
                 <RadioGroup 
-                  defaultValue={selectedColor} 
+                  value={selectedColor} 
                   onValueChange={setSelectedColor}
-                  className="flex gap-4"
+                  className="flex flex-col gap-2"
                 >
                   {colors.map((color) => (
-                    <div key={color.name} className="flex items-center space-x-2">
+                    <div key={color.name} className="flex flex-col items-start gap-3">
                       <RadioGroupItem
                         value={color.name}
                         id={`color-${color.name}`}
@@ -124,20 +122,23 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
                       <Label
                         htmlFor={`color-${color.name}`}
                         className={cn(
-                          "w-10 h-10 rounded-full border-2 border-transparent cursor-pointer transition-all flex items-center justify-center p-0.5",
+                          "w-12 h-12 rounded-full border-2 border-transparent cursor-pointer transition-all flex items-center justify-center p-0.5 shadow-lg",
                           selectedColor === color.name ? "border-accent scale-110" : "hover:border-white/50"
                         )}
                         title={color.name}
                       >
                         <span 
                           className="w-full h-full rounded-full shadow-inner border border-white/10" 
-                          style={{ backgroundColor: color.hex }}
+                          style={{ 
+                            backgroundColor: color.hex,
+                            backgroundImage: "repeating-linear-gradient(45deg, transparent, transparent 4px, rgba(0,0,0,0.3) 4px, rgba(0,0,0,0.3) 8px), repeating-linear-gradient(-45deg, transparent, transparent 10px, rgba(255,255,255,0.05) 10px, rgba(255,255,255,0.05) 20px)"
+                          }}
                         />
                       </Label>
+                      <span className="text-xs font-bold text-accent uppercase tracking-widest">{color.name}</span>
                     </div>
                   ))}
                 </RadioGroup>
-                <p className="text-xs font-medium text-accent uppercase tracking-tighter">{selectedColor}</p>
               </div>
 
               {/* Size Selection */}
