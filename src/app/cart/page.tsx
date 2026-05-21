@@ -15,7 +15,7 @@ export default function CartPage() {
   const cartItems = [
     {
       id: "limited-editions",
-      name: "Equipamento LIMITED-EDITIONS Alpine",
+      name: "DB SIGNATURE SERIES",
       collection: "Edições Limitadas",
       size: "G",
       color: "MARROM",

@@ -32,7 +32,11 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
   const [selectedSize, setSelectedSize] = useState("M");
   const [selectedColor, setSelectedColor] = useState(colors[0].name);
 
-  const productName = id.includes("trail") ? "STEALTH CAMO" : `Equipamento ${id.toUpperCase()} Alpine`;
+  const productName = id.includes("trail") 
+    ? "STEALTH CAMO" 
+    : id.includes("limited") 
+      ? "DB SIGNATURE SERIES" 
+      : `Equipamento ${id.toUpperCase()} Alpine`;
 
   const baseProductImage = PlaceHolderImages.find((img) => img.id === (id.includes("limited") ? "limited-editions" : id.includes("trail") ? "performance-trail" : "urban-equipment")) || {
     imageUrl: "https://picsum.photos/seed/product/800/1000",
