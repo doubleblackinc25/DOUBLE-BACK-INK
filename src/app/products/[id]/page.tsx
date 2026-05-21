@@ -21,12 +21,14 @@ import {
 } from "@/components/ui/carousel";
 
 const sizes = ["P", "M", "G", "GG", "XG"];
-const colors = [
-  { name: "STEALTH GRAY CAMO", hex: "#3f4441" },
-];
 
 export default function ProductPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = use(params);
+  
+  const colors = id.includes("limited") 
+    ? [{ name: "RIDE STYLE", hex: "#5d4037" }] 
+    : [{ name: "STEALTH GRAY CAMO", hex: "#3f4441" }];
+
   const [selectedSize, setSelectedSize] = useState("M");
   const [selectedColor, setSelectedColor] = useState(colors[0].name);
 
@@ -47,6 +49,26 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
     },
     { imageUrl: "https://picsum.photos/seed/view3/800/1000", description: "Detail View", imageHint: "product detail", id: "view-3", position: "center" },
   ];
+
+  const getCircleStyle = () => {
+    if (id.includes("limited")) {
+      return { backgroundColor: "#5d4037" }; // Brown for RIDE STYLE
+    }
+    return { 
+      backgroundColor: '#3a3e3c',
+      backgroundImage: `
+        radial-gradient(ellipse at 15% 25%, #4b514d 35%, transparent 36%),
+        radial-gradient(ellipse at 85% 15%, #2a2e2c 45%, transparent 46%),
+        radial-gradient(circle at 50% 55%, #5a5e5b 40%, transparent 41%),
+        radial-gradient(ellipse at 25% 75%, #1a1c1b 38%, transparent 39%),
+        radial-gradient(circle at 75% 85%, #2a2e2c 30%, transparent 31%),
+        radial-gradient(ellipse at 65% 35%, #4b514d 32%, transparent 33%),
+        radial-gradient(circle at 10% 90%, #5a5e5b 28%, transparent 29%),
+        repeating-linear-gradient(135deg, rgba(255,255,255,0.02) 0px, rgba(255,255,255,0.02) 1px, transparent 1px, transparent 4px)
+      `,
+      backgroundBlendMode: 'normal'
+    };
+  };
 
   return (
     <div className="flex flex-col min-h-screen bg-background text-foreground">
@@ -106,7 +128,7 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
             <div className="space-y-6 pt-6 border-t border-border">
               {/* Color Selection */}
               <div className="space-y-4">
-                <Label className="text-sm uppercase tracking-widest text-muted-foreground">Cor Técnica</Label>
+                <Label className="text-sm uppercase tracking-widest text-muted-foreground">Estilo Técnico</Label>
                 <RadioGroup 
                   value={selectedColor} 
                   onValueChange={setSelectedColor}
@@ -129,20 +151,7 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
                       >
                         <span 
                           className="w-full h-full rounded-full shadow-inner" 
-                          style={{ 
-                            backgroundColor: '#3a3e3c',
-                            backgroundImage: `
-                              radial-gradient(ellipse at 15% 25%, #4b514d 35%, transparent 36%),
-                              radial-gradient(ellipse at 85% 15%, #2a2e2c 45%, transparent 46%),
-                              radial-gradient(circle at 50% 55%, #5a5e5b 40%, transparent 41%),
-                              radial-gradient(ellipse at 25% 75%, #1a1c1b 38%, transparent 39%),
-                              radial-gradient(circle at 75% 85%, #2a2e2c 30%, transparent 31%),
-                              radial-gradient(ellipse at 65% 35%, #4b514d 32%, transparent 33%),
-                              radial-gradient(circle at 10% 90%, #5a5e5b 28%, transparent 29%),
-                              repeating-linear-gradient(135deg, rgba(255,255,255,0.02) 0px, rgba(255,255,255,0.02) 1px, transparent 1px, transparent 4px)
-                            `,
-                            backgroundBlendMode: 'normal'
-                          }}
+                          style={getCircleStyle()}
                         />
                       </Label>
                       <span className="text-xs font-bold text-accent uppercase tracking-[0.2em]">{color.name}</span>

@@ -18,7 +18,7 @@ export default function CartPage() {
       name: "Protótipo Alpine X1",
       collection: "Edições Limitadas",
       size: "G",
-      color: "Obsidian Black",
+      color: "RIDE STYLE",
       price: "R$ 890,00",
       image: PlaceHolderImages.find(img => img.id === "limited-editions")?.imageUrl || "https://picsum.photos/seed/product/200/250"
     },
@@ -78,7 +78,7 @@ export default function CartPage() {
                       <p className="text-xs text-accent font-bold uppercase tracking-tighter">{item.collection}</p>
                       <div className="flex gap-4 pt-2 text-sm text-muted-foreground font-body">
                         <span>Tam: <span className="text-foreground font-bold">{item.size}</span></span>
-                        <span>Cor: <span className="text-foreground font-bold">{item.color}</span></span>
+                        <span>Estilo: <span className="text-foreground font-bold">{item.color}</span></span>
                       </div>
                     </div>
                     <div className="flex justify-between items-end mt-4">
