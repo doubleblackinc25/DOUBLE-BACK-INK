@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState, use } from "react";
@@ -123,7 +122,7 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
           {/* Product Details */}
           <div className="flex flex-col space-y-8">
             <div className="space-y-4">
-              <h1 className="text-4xl md:text-5xl font-logo uppercase tracking-tight text-gradient-metallic">
+              <h1 className="text-4xl md:text-5xl font-logo uppercase tracking-tight text-gradient-metallic py-4 pr-8">
                 {productName}
               </h1>
               <p className="text-xl text-muted-foreground font-body leading-relaxed">

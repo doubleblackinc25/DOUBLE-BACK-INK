@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState, use } from "react";
@@ -93,7 +92,7 @@ export default function CollectionPage({ params }: Props) {
               <ArrowLeft className="mr-2 h-4 w-4" /> Voltar para Início
             </Link>
           </Button>
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-headline text-gradient-metallic uppercase tracking-tight">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-headline text-gradient-metallic uppercase tracking-tight py-4 pr-8">
             {title}
           </h1>
         </div>

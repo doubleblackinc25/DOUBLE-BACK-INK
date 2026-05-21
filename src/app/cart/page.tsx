@@ -10,7 +10,6 @@ import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { Separator } from "@/components/ui/separator";
 
 export default function CartPage() {
-  // Mock de dados sincronizado com a identidade visual da marca e as últimas alterações
   const cartItems = [
     {
       id: "limited-editions",
@@ -43,7 +42,7 @@ export default function CartPage() {
                 <ArrowLeft className="mr-2 h-4 w-4" /> Voltar para o QG
               </Link>
             </Button>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-headline text-gradient-metallic uppercase tracking-tighter leading-none py-4">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-headline text-gradient-metallic uppercase tracking-tighter leading-tight py-4 pr-8">
               Seu Equipamento
             </h1>
           </div>
