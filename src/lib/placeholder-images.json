@@ -14,9 +14,9 @@
     },
     {
       "id": "urban-equipment",
-      "description": "Equipamento tático urbano Double Black.",
-      "imageUrl": "https://i.imgur.com/i4nyTI4.png",
-      "imageHint": "urban tactical"
+      "description": "Equipamento tático urbano Double Black na Ponte de Brooklyn.",
+      "imageUrl": "https://picsum.photos/seed/brooklyn-bw/800/800?grayscale",
+      "imageHint": "brooklyn bridge"
     },
     {
       "id": "performance-trail",

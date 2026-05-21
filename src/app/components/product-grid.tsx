@@ -72,7 +72,7 @@ export default function ProductGrid() {
                   src={urbanEquipmentImage.imageUrl}
                   alt={urbanEquipmentImage.description}
                   fill
-                  style={{ objectPosition: 'center 30%' }}
+                  style={{ objectPosition: 'center center' }}
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
                   sizes="(max-width: 768px) 100vw, 50vw"
                   data-ai-hint={urbanEquipmentImage.imageHint}
