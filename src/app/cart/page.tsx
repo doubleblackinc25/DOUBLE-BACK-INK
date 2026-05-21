@@ -1,4 +1,3 @@
-
 "use client";
 
 import Header from "@/app/components/header";
@@ -44,11 +43,11 @@ export default function CartPage() {
                 <ArrowLeft className="mr-2 h-4 w-4" /> Voltar para o QG
               </Link>
             </Button>
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-headline text-gradient-metallic uppercase tracking-tighter leading-none">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-headline text-gradient-metallic uppercase tracking-tighter leading-none py-4">
               Seu Equipamento
             </h1>
           </div>
-          <p className="text-muted-foreground font-body uppercase text-xs tracking-[0.2em]">[{cartItems.length}] itens prontos para expedição</p>
+          <p className="text-muted-foreground font-body uppercase text-xs tracking-[0.2em] mb-4 md:mb-6">[{cartItems.length}] itens prontos para expedição</p>
         </div>
 
         <div className="grid lg:grid-cols-3 gap-12">
