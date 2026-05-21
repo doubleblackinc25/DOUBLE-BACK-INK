@@ -30,7 +30,7 @@ export default function CollectionPage({ params }: Props) {
   const { id } = use(params);
   
   const colors = id === "limited-editions" 
-    ? [{ name: "RIDE STYLE", hex: "#5d4037" }] 
+    ? [{ name: "RIDE STYLE BROWN", hex: "#795548" }] 
     : [{ name: "STEALTH GRAY CAMO", hex: "#3f4441" }];
 
   const [selectedSize, setSelectedSize] = useState("M");
@@ -64,7 +64,7 @@ export default function CollectionPage({ params }: Props) {
 
   const getCircleStyle = () => {
     if (id === "limited-editions") {
-      return { backgroundColor: "#5d4037" }; // Brown for RIDE STYLE
+      return { backgroundColor: "#795548" }; // Lighter brown for RIDE STYLE BROWN
     }
     // Stealth Gray Camo pattern
     return { 
