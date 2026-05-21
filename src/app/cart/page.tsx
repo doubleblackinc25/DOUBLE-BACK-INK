@@ -114,13 +114,13 @@ export default function CartPage() {
                   <span className="text-foreground font-bold">R$ 1.540,00</span>
                 </div>
                 <div className="flex justify-between text-muted-foreground uppercase tracking-tighter">
-                  <span>Envio Tático</span>
+                  <span>Envio</span>
                   <span className="text-accent font-bold">GRÁTIS</span>
                 </div>
                 <Separator className="bg-border my-4" />
                 <div className="flex flex-col gap-1 items-end">
                   <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground">Total da Reserva</span>
-                  <span className="text-4xl font-headline tracking-tighter text-gradient-metallic">R$ 1.540,00</span>
+                  <span className="text-4xl font-headline tracking-tight text-gradient-metallic pr-4 py-1">R$ 1.540,00</span>
                 </div>
               </div>
 
