@@ -11,12 +11,12 @@ export default function Header() {
         <nav className="ml-auto flex items-center space-x-2">
           <Button variant="ghost" size="icon" asChild>
             <Link href="/copy-tool" aria-label="AI Copy Tool">
-              <Wand2 className="h-5 w-5" />
+              <Wand2 className="h-5 w-5 text-accent" />
             </Link>
           </Button>
           <Button variant="ghost" size="icon" asChild>
             <Link href="/cart" aria-label="Shopping Cart">
-              <ShoppingCart className="h-5 w-5" />
+              <ShoppingCart className="h-5 w-5 text-accent" />
             </Link>
           </Button>
         </nav>
