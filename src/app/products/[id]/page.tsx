@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, use } from "react";
@@ -129,14 +130,16 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
                         <span 
                           className="w-full h-full rounded-full shadow-inner border border-white/10" 
                           style={{ 
-                            backgroundColor: color.hex,
+                            backgroundColor: '#3f4441',
                             backgroundImage: `
-                              radial-gradient(circle at 30% 30%, rgba(63, 68, 65, 0.8) 0%, transparent 40%),
-                              radial-gradient(circle at 70% 60%, rgba(40, 44, 42, 0.9) 0%, transparent 50%),
-                              radial-gradient(circle at 50% 10%, rgba(80, 85, 82, 0.7) 0%, transparent 35%),
-                              repeating-linear-gradient(45deg, transparent, transparent 5px, rgba(0,0,0,0.2) 5px, rgba(0,0,0,0.2) 10px)
+                              radial-gradient(circle at 20% 30%, #5a5e5b 25%, transparent 25.5%),
+                              radial-gradient(circle at 80% 20%, #282c2a 30%, transparent 30.5%),
+                              radial-gradient(circle at 40% 70%, #4b514d 35%, transparent 35.5%),
+                              radial-gradient(circle at 80% 80%, #5a5e5b 25%, transparent 25.5%),
+                              radial-gradient(circle at 15% 75%, #282c2a 20%, transparent 20.5%),
+                              repeating-linear-gradient(45deg, rgba(0,0,0,0.05), rgba(0,0,0,0.05) 1px, transparent 1px, transparent 2px)
                             `,
-                            backgroundBlendMode: 'overlay'
+                            backgroundBlendMode: 'normal'
                           }}
                         />
                       </Label>

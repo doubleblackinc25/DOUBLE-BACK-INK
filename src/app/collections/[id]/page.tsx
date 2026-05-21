@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, use } from "react";
@@ -139,14 +140,16 @@ export default function CollectionPage({ params }: Props) {
                         <span 
                           className="w-full h-full rounded-full" 
                           style={{ 
-                            backgroundColor: color.hex,
+                            backgroundColor: '#3f4441',
                             backgroundImage: `
-                              radial-gradient(circle at 30% 30%, rgba(63, 68, 65, 0.8) 0%, transparent 40%),
-                              radial-gradient(circle at 70% 60%, rgba(40, 44, 42, 0.9) 0%, transparent 50%),
-                              radial-gradient(circle at 50% 10%, rgba(80, 85, 82, 0.7) 0%, transparent 35%),
-                              repeating-linear-gradient(45deg, transparent, transparent 5px, rgba(0,0,0,0.2) 5px, rgba(0,0,0,0.2) 10px)
+                              radial-gradient(circle at 15% 25%, #5a5e5b 22%, transparent 22.5%),
+                              radial-gradient(circle at 75% 15%, #282c2a 28%, transparent 28.5%),
+                              radial-gradient(circle at 45% 65%, #4b514d 35%, transparent 35.5%),
+                              radial-gradient(circle at 85% 75%, #5a5e5b 22%, transparent 22.5%),
+                              radial-gradient(circle at 10% 80%, #282c2a 18%, transparent 18.5%),
+                              repeating-linear-gradient(45deg, rgba(0,0,0,0.1), rgba(0,0,0,0.1) 2px, transparent 2px, transparent 4px)
                             `,
-                            backgroundBlendMode: 'overlay'
+                            backgroundBlendMode: 'normal'
                           }} 
                         />
                       </Label>
