@@ -27,7 +27,7 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
   
   const colors = id.includes("limited") 
     ? [{ name: "MARROM", hex: "#A1887F" }] 
-    : [{ name: "STEALTH GRAY CAMO", hex: "#3f4441" }];
+    : [{ name: "CINZA", hex: "#3f4441" }];
 
   const [selectedSize, setSelectedSize] = useState("M");
   const [selectedColor, setSelectedColor] = useState(colors[0].name);
@@ -128,7 +128,9 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
             <div className="space-y-6 pt-6 border-t border-border">
               {/* Color Selection */}
               <div className="space-y-4">
-                <Label className="text-sm uppercase tracking-widest text-muted-foreground">Estilo Técnico</Label>
+                <Label className="text-sm uppercase tracking-widest text-muted-foreground">
+                  {id.includes("trail") ? "STEALTH CAMO" : "Estilo Técnico"}
+                </Label>
                 <RadioGroup 
                   value={selectedColor} 
                   onValueChange={setSelectedColor}

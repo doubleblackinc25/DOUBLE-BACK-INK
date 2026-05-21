@@ -27,7 +27,7 @@ export default function CartPage() {
       name: "STEALTH GRAY CAMO",
       collection: "Performance Trail",
       size: "M",
-      color: "STEALTH GRAY CAMO",
+      color: "CINZA",
       price: "R$ 650,00",
       image: PlaceHolderImages.find(img => img.id === "performance-trail")?.imageUrl || "https://picsum.photos/seed/product2/200/250"
     }
@@ -82,7 +82,7 @@ export default function CartPage() {
                       </div>
                     </div>
                     <div className="flex justify-between items-end mt-4">
-                      <div className="flex items-center border border-border rounded">
+                      <div className="flex items-center justify-center border border-border rounded">
                         <button className="px-3 py-1 hover:text-accent transition-colors">-</button>
                         <span className="px-3 py-1 border-x border-border text-sm">1</span>
                         <button className="px-3 py-1 hover:text-accent transition-colors">+</button>

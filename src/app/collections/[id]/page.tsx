@@ -31,7 +31,7 @@ export default function CollectionPage({ params }: Props) {
   
   const colors = id === "limited-editions" 
     ? [{ name: "MARROM", hex: "#A1887F" }] 
-    : [{ name: "STEALTH GRAY CAMO", hex: "#3f4441" }];
+    : [{ name: "CINZA", hex: "#3f4441" }];
 
   const [selectedSize, setSelectedSize] = useState("M");
   const [selectedColor, setSelectedColor] = useState(colors[0].name);
@@ -144,7 +144,9 @@ export default function CollectionPage({ params }: Props) {
             <div className="space-y-8 pt-8 border-t border-border">
               {/* Seleção de Cor */}
               <div className="space-y-4">
-                <Label className="text-sm uppercase tracking-widest text-muted-foreground">Estilo Técnico</Label>
+                <Label className="text-sm uppercase tracking-widest text-muted-foreground">
+                  {id === "performance-trail" ? "STEALTH CAMO" : "Estilo Técnico"}
+                </Label>
                 <RadioGroup 
                   value={selectedColor} 
                   onValueChange={setSelectedColor}
