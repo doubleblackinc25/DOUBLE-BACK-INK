@@ -18,7 +18,8 @@ export default function CartPage() {
       size: "G",
       color: "MARROM",
       price: "R$ 890,00",
-      image: PlaceHolderImages.find(img => img.id === "limited-editions")?.imageUrl || "https://picsum.photos/seed/product/200/250"
+      image: PlaceHolderImages.find(img => img.id === "limited-editions")?.imageUrl || "https://picsum.photos/seed/product/200/250",
+      objectPosition: "center 100%"
     },
     {
       id: "performance-trail",
@@ -27,7 +28,8 @@ export default function CartPage() {
       size: "M",
       color: "CINZA",
       price: "R$ 650,00",
-      image: PlaceHolderImages.find(img => img.id === "performance-trail")?.imageUrl || "https://picsum.photos/seed/product2/200/250"
+      image: PlaceHolderImages.find(img => img.id === "performance-trail")?.imageUrl || "https://picsum.photos/seed/product2/200/250",
+      objectPosition: "center"
     }
   ];
 
@@ -61,6 +63,7 @@ export default function CartPage() {
                       alt={item.name}
                       fill
                       className="object-cover"
+                      style={{ objectPosition: item.objectPosition }}
                     />
                   </div>
                   <div className="flex flex-col justify-between flex-grow">
