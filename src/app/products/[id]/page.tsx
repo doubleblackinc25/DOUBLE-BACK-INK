@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState, use } from "react";
@@ -122,7 +121,7 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
                       <Label
                         htmlFor={`color-${color.name}`}
                         className={cn(
-                          "w-12 h-12 rounded-full border-2 border-transparent cursor-pointer transition-all flex items-center justify-center p-0.5 shadow-lg",
+                          "w-12 h-12 rounded-full border-2 border-transparent cursor-pointer transition-all flex items-center justify-center p-0.5 shadow-lg overflow-hidden",
                           selectedColor === color.name ? "border-accent scale-110" : "hover:border-white/50"
                         )}
                         title={color.name}
@@ -131,7 +130,13 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
                           className="w-full h-full rounded-full shadow-inner border border-white/10" 
                           style={{ 
                             backgroundColor: color.hex,
-                            backgroundImage: "repeating-linear-gradient(45deg, transparent, transparent 4px, rgba(0,0,0,0.3) 4px, rgba(0,0,0,0.3) 8px), repeating-linear-gradient(-45deg, transparent, transparent 10px, rgba(255,255,255,0.05) 10px, rgba(255,255,255,0.05) 20px)"
+                            backgroundImage: `
+                              radial-gradient(circle at 30% 30%, rgba(63, 68, 65, 0.8) 0%, transparent 40%),
+                              radial-gradient(circle at 70% 60%, rgba(40, 44, 42, 0.9) 0%, transparent 50%),
+                              radial-gradient(circle at 50% 10%, rgba(80, 85, 82, 0.7) 0%, transparent 35%),
+                              repeating-linear-gradient(45deg, transparent, transparent 5px, rgba(0,0,0,0.2) 5px, rgba(0,0,0,0.2) 10px)
+                            `,
+                            backgroundBlendMode: 'overlay'
                           }}
                         />
                       </Label>
