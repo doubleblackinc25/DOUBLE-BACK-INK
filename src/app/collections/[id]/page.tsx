@@ -51,7 +51,12 @@ export default function CollectionPage({ params }: Props) {
 
   const productViews = [
     { ...baseProductImage, id: "view-1" },
-    { imageUrl: "https://picsum.photos/seed/view2/800/1000", description: "Side View", imageHint: "product side", id: "view-2" },
+    { 
+      imageUrl: id === "performance-trail" ? "https://i.imgur.com/zTLskGD.png" : "https://picsum.photos/seed/view2/800/1000", 
+      description: "Side View", 
+      imageHint: "product side", 
+      id: "view-2" 
+    },
     { imageUrl: "https://picsum.photos/seed/view3/800/1000", description: "Detail View", imageHint: "product detail", id: "view-3" },
   ];
 
