@@ -27,7 +27,7 @@ export default function ProductGrid() {
                   src={limitedEditionsImage.imageUrl}
                   alt={limitedEditionsImage.description}
                   fill
-                  style={{ objectPosition: 'center 30%' }}
+                  style={{ objectPosition: 'center 40%' }}
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
                   sizes="(max-width: 768px) 100vw, 50vw"
                   data-ai-hint={limitedEditionsImage.imageHint}
