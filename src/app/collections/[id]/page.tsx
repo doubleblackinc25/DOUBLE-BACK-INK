@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState, use } from "react";
@@ -174,7 +173,7 @@ export default function CollectionPage({ params }: Props) {
                 
                 <div className="flex items-center justify-center gap-2 text-muted-foreground text-sm font-body">
                   <ShieldCheck className="h-4 w-4 text-accent" />
-                  Garantia Vitalícia Double Black
+                  Qualidade garantida Double Black
                 </div>
               </div>
             </div>
