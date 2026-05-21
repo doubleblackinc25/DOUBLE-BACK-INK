@@ -19,7 +19,7 @@ export default function CartPage() {
       color: "MARROM",
       price: "R$ 890,00",
       image: PlaceHolderImages.find(img => img.id === "limited-editions")?.imageUrl || "https://picsum.photos/seed/product/200/250",
-      objectPosition: "center bottom"
+      objectPosition: "center top"
     },
     {
       id: "performance-trail",
