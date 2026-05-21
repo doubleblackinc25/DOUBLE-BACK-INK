@@ -6,7 +6,7 @@ export default function Footer() {
   return (
     <footer className="bg-secondary/20 border-t border-border">
       <div className="container mx-auto py-12 px-4 md:px-6">
-        <div className="grid md:grid-cols-2 gap-8 items-center">
+        <div className="grid md:grid-cols-2 gap-8 items-end">
           <div className="space-y-4">
             <h2 className="text-2xl md:text-3xl font-headline uppercase tracking-wider">
               Entre para o Esquadrão de Elite
