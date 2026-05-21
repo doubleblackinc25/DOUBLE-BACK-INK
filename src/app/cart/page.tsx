@@ -11,7 +11,7 @@ import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { Separator } from "@/components/ui/separator";
 
 export default function CartPage() {
-  // Mock de dados sincronizado com a lógica de src/app/products/[id]/page.tsx
+  // Mock de dados sincronizado com a identidade visual da marca
   const cartItems = [
     {
       id: "limited-editions",
@@ -24,7 +24,7 @@ export default function CartPage() {
     },
     {
       id: "performance-trail",
-      name: "Equipamento PERFORMANCE-TRAIL Alpine",
+      name: "STEALTH CAMO",
       collection: "Performance Trail",
       size: "M",
       color: "CINZA",

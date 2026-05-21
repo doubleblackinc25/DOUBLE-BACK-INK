@@ -32,6 +32,8 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
   const [selectedSize, setSelectedSize] = useState("M");
   const [selectedColor, setSelectedColor] = useState(colors[0].name);
 
+  const productName = id.includes("trail") ? "STEALTH CAMO" : `Equipamento ${id.toUpperCase()} Alpine`;
+
   const baseProductImage = PlaceHolderImages.find((img) => img.id === (id.includes("limited") ? "limited-editions" : id.includes("trail") ? "performance-trail" : "urban-equipment")) || {
     imageUrl: "https://picsum.photos/seed/product/800/1000",
     description: "Product View",
@@ -118,7 +120,7 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
           <div className="flex flex-col space-y-8">
             <div className="space-y-4">
               <h1 className="text-4xl md:text-5xl font-logo uppercase tracking-tight text-gradient-metallic">
-                Equipamento {id.toUpperCase()} Alpine
+                {productName}
               </h1>
               <p className="text-xl text-muted-foreground font-body leading-relaxed">
                 Desenvolvido para expedições onde a margem de erro é zero. Construção em polímero reforçado e arquitetura de ventilação dinâmica.
