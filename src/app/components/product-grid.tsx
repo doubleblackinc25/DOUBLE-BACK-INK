@@ -27,7 +27,7 @@ export default function ProductGrid() {
                   src={limitedEditionsImage.imageUrl}
                   alt={limitedEditionsImage.description}
                   fill
-                  className="object-cover object-top transition-transform duration-700 group-hover:scale-110"
+                  className="object-cover object-center transition-transform duration-700 group-hover:scale-110"
                   sizes="(max-width: 768px) 100vw, 50vw"
                   data-ai-hint={limitedEditionsImage.imageHint}
                 />
@@ -71,7 +71,7 @@ export default function ProductGrid() {
                   src={urbanEquipmentImage.imageUrl}
                   alt={urbanEquipmentImage.description}
                   fill
-                  className="object-cover object-top transition-transform duration-700 group-hover:scale-110"
+                  className="object-cover object-center transition-transform duration-700 group-hover:scale-110"
                   sizes="(max-width: 768px) 100vw, 50vw"
                   data-ai-hint={urbanEquipmentImage.imageHint}
                 />
@@ -104,7 +104,7 @@ export default function ProductGrid() {
                   src={performanceTrailImage.imageUrl}
                   alt={performanceTrailImage.description}
                   fill
-                  className="object-cover object-top transition-transform duration-700 group-hover:scale-110"
+                  className="object-cover object-center transition-transform duration-700 group-hover:scale-110"
                   sizes="(max-width: 768px) 100vw, 50vw"
                   data-ai-hint={performanceTrailImage.imageHint}
                 />
