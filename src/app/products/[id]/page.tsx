@@ -26,7 +26,7 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
   const { id } = use(params);
   
   const colors = id.includes("limited") 
-    ? [{ name: "RIDE STYLE BROWN", hex: "#795548" }] 
+    ? [{ name: "RIDE STYLE BROWN", hex: "#A1887F" }] 
     : [{ name: "STEALTH GRAY CAMO", hex: "#3f4441" }];
 
   const [selectedSize, setSelectedSize] = useState("M");
@@ -52,7 +52,7 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
 
   const getCircleStyle = () => {
     if (id.includes("limited")) {
-      return { backgroundColor: "#795548" }; // Lighter brown for RIDE STYLE BROWN
+      return { backgroundColor: "#A1887F" }; // Lighter brown for RIDE STYLE BROWN
     }
     return { 
       backgroundColor: '#3a3e3c',
