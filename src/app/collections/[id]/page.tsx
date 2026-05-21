@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, use } from "react";
@@ -76,14 +77,14 @@ export default function CollectionPage({ params }: Props) {
           </h1>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 items-start py-8">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 items-center py-8">
           {/* Lado Esquerdo: Carrossel de Imagens */}
           <div className="space-y-6">
-            <Carousel className="w-full">
+            <Carousel className="w-full max-w-xl mx-auto">
               <CarouselContent>
                 {productViews.map((view, index) => (
                   <CarouselItem key={view.id}>
-                    <div className="relative aspect-[4/5] overflow-hidden rounded-lg border-2 border-border bg-secondary/10 shadow-2xl">
+                    <div className="relative aspect-square overflow-hidden rounded-lg border-2 border-border bg-secondary/10 shadow-2xl mx-auto max-w-[480px]">
                       <Image
                         src={view.imageUrl}
                         alt={view.description}
