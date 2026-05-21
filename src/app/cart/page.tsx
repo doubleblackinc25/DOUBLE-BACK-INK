@@ -11,11 +11,11 @@ import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { Separator } from "@/components/ui/separator";
 
 export default function CartPage() {
-  // Mock de dados para o carrinho sincronizado com as coleções
+  // Mock de dados sincronizado com a lógica de src/app/products/[id]/page.tsx
   const cartItems = [
     {
       id: "limited-editions",
-      name: "Protótipo Alpine X1",
+      name: "Equipamento LIMITED-EDITIONS Alpine",
       collection: "Edições Limitadas",
       size: "G",
       color: "MARROM",
@@ -24,7 +24,7 @@ export default function CartPage() {
     },
     {
       id: "performance-trail",
-      name: "STEALTH GRAY CAMO",
+      name: "Equipamento PERFORMANCE-TRAIL Alpine",
       collection: "Performance Trail",
       size: "M",
       color: "CINZA",
@@ -48,7 +48,7 @@ export default function CartPage() {
               Seu Equipamento
             </h1>
           </div>
-          <p className="text-muted-foreground font-body">2 itens prontos para expedição</p>
+          <p className="text-muted-foreground font-body">{cartItems.length} itens prontos para expedição</p>
         </div>
 
         <div className="grid lg:grid-cols-3 gap-12">
