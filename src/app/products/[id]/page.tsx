@@ -62,11 +62,11 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-24">
           {/* Image Carousel */}
           <div className="space-y-6">
-            <Carousel className="w-full">
+            <Carousel className="w-full max-w-xl mx-auto">
               <CarouselContent>
                 {productViews.map((view, index) => (
                   <CarouselItem key={view.id}>
-                    <div className="relative aspect-[4/5] overflow-hidden rounded-lg border border-border bg-secondary/10">
+                    <div className="relative aspect-square overflow-hidden rounded-lg border-2 border-border bg-secondary/10 shadow-2xl mx-auto max-w-[480px]">
                       <Image
                         src={view.imageUrl}
                         alt={view.description}
@@ -86,7 +86,7 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
                 ))}
               </CarouselContent>
               {/* Navigation arrows positioned below the image */}
-              <div className="flex justify-center gap-6 mt-6">
+              <div className="flex justify-center gap-6 mt-8">
                 <CarouselPrevious className="static translate-y-0 h-12 w-12 border-2 border-border hover:border-accent hover:text-accent bg-transparent" />
                 <CarouselNext className="static translate-y-0 h-12 w-12 border-2 border-border hover:border-accent hover:text-accent bg-transparent" />
               </div>
