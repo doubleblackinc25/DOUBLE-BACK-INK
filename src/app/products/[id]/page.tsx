@@ -32,7 +32,7 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
   const [selectedSize, setSelectedSize] = useState("M");
   const [selectedColor, setSelectedColor] = useState(colors[0].name);
 
-  const baseProductImage = PlaceHolderImages.find((img) => img.id === "limited-editions") || {
+  const baseProductImage = PlaceHolderImages.find((img) => img.id === (id.includes("limited") ? "limited-editions" : id.includes("trail") ? "performance-trail" : "urban-equipment")) || {
     imageUrl: "https://picsum.photos/seed/product/800/1000",
     description: "Product View",
     imageHint: "technical product"
@@ -50,9 +50,9 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
     { imageUrl: "https://picsum.photos/seed/view3/800/1000", description: "Detail View", imageHint: "product detail", id: "view-3", position: "center" },
   ];
 
-  const getCircleStyle = () => {
-    if (id.includes("limited")) {
-      return { backgroundColor: "#A1887F" }; // Lighter brown for RIDE STYLE BROWN
+  const getCircleStyle = (colorName: string) => {
+    if (colorName === "RIDE STYLE BROWN") {
+      return { backgroundColor: "#A1887F" };
     }
     return { 
       backgroundColor: '#3a3e3c',
@@ -80,7 +80,7 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
           </Link>
         </Button>
 
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-24">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 items-start">
           {/* Image Carousel */}
           <div className="space-y-6">
             <Carousel className="w-full max-w-xl mx-auto">
@@ -151,7 +151,7 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
                       >
                         <span 
                           className="w-full h-full rounded-full shadow-inner" 
-                          style={getCircleStyle()}
+                          style={getCircleStyle(color.name)}
                         />
                       </Label>
                       <span className="text-xs font-bold text-accent uppercase tracking-[0.2em]">{color.name}</span>
@@ -195,9 +195,11 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
 
               {/* Action Buttons */}
               <div className="space-y-4 pt-8">
-                <Button variant="accent" size="lg" className="w-full h-14 text-lg font-headline uppercase tracking-widest group">
-                  <ShoppingCart className="mr-2 h-5 w-5 transition-transform group-hover:-translate-y-1" />
-                  Reservar Protótipo
+                <Button variant="accent" size="lg" className="w-full h-14 text-lg font-headline uppercase tracking-widest group" asChild>
+                  <Link href="/cart">
+                    <ShoppingCart className="mr-2 h-5 w-5 transition-transform group-hover:-translate-y-1" />
+                    Reservar Protótipo
+                  </Link>
                 </Button>
                 
                 <div className="flex items-center justify-center gap-2 text-muted-foreground text-sm font-body">

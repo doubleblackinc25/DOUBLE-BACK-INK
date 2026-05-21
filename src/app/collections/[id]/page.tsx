@@ -62,9 +62,9 @@ export default function CollectionPage({ params }: Props) {
     { imageUrl: "https://picsum.photos/seed/view3/800/1000", description: "Detail View", imageHint: "product detail", id: "view-3", position: "center" },
   ];
 
-  const getCircleStyle = () => {
-    if (id === "limited-editions") {
-      return { backgroundColor: "#A1887F" }; // Lighter brown for RIDE STYLE BROWN
+  const getCircleStyle = (colorName: string) => {
+    if (colorName === "RIDE STYLE BROWN") {
+      return { backgroundColor: "#A1887F" };
     }
     // Stealth Gray Camo pattern
     return { 
@@ -98,7 +98,7 @@ export default function CollectionPage({ params }: Props) {
           </h1>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 items-center py-8">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 items-start py-8">
           {/* Lado Esquerdo: Carrossel de Imagens */}
           <div className="space-y-6">
             <Carousel className="w-full max-w-xl mx-auto">
@@ -162,7 +162,7 @@ export default function CollectionPage({ params }: Props) {
                       >
                         <span 
                           className="w-full h-full rounded-full" 
-                          style={getCircleStyle()} 
+                          style={getCircleStyle(color.name)} 
                         />
                       </Label>
                       <span className="text-xs font-bold text-accent uppercase tracking-[0.2em]">{color.name}</span>
@@ -198,9 +198,11 @@ export default function CollectionPage({ params }: Props) {
 
               {/* Botão de Ação */}
               <div className="space-y-4 pt-4">
-                <Button variant="accent" size="lg" className="w-full h-16 text-lg font-headline uppercase tracking-widest group">
-                  <ShoppingCart className="mr-2 h-6 w-6 transition-transform group-hover:-translate-y-1" />
-                  Reservar Protótipo
+                <Button variant="accent" size="lg" className="w-full h-16 text-lg font-headline uppercase tracking-widest group" asChild>
+                  <Link href="/cart">
+                    <ShoppingCart className="mr-2 h-6 w-6 transition-transform group-hover:-translate-y-1" />
+                    Reservar Protótipo
+                  </Link>
                 </Button>
                 
                 <div className="flex items-center justify-center gap-2 text-muted-foreground text-sm font-body">
