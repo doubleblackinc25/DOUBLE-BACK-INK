@@ -18,7 +18,7 @@ export default function CartPage() {
       name: "Protótipo Alpine X1",
       collection: "Edições Limitadas",
       size: "G",
-      color: "RIDE STYLE BROWN",
+      color: "MARROM",
       price: "R$ 890,00",
       image: PlaceHolderImages.find(img => img.id === "limited-editions")?.imageUrl || "https://picsum.photos/seed/product/200/250"
     },
