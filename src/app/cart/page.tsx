@@ -1,3 +1,4 @@
+
 "use client";
 
 import Header from "@/app/components/header";
@@ -120,14 +121,14 @@ export default function CartPage() {
                 <Separator className="bg-border my-4" />
                 <div className="flex flex-col gap-1 items-end">
                   <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground">Total da Reserva</span>
-                  <span className="text-4xl font-headline tracking-tight text-gradient-metallic pr-4 py-1">R$ 1.540,00</span>
+                  <span className="text-4xl font-headline tracking-tight text-gradient-metallic pr-6 py-1">R$ 1.540,00</span>
                 </div>
               </div>
 
               <div className="space-y-4 pt-4">
-                <Button variant="accent" size="lg" className="w-full h-16 text-lg font-headline uppercase tracking-widest group shadow-[0_0_20px_rgba(242,113,33,0.15)]">
-                  Finalizar Reserva
-                  <ChevronRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+                <Button variant="accent" size="lg" className="w-full h-16 text-lg font-headline uppercase tracking-normal group shadow-[0_0_20px_rgba(242,113,33,0.15)] flex items-center justify-center px-6">
+                  <span className="whitespace-nowrap">Finalizar Reserva</span>
+                  <ChevronRight className="ml-2 h-5 w-5 shrink-0 transition-transform group-hover:translate-x-1" />
                 </Button>
                 <div className="flex items-center justify-center gap-2 text-muted-foreground text-[10px] font-body uppercase tracking-widest">
                   <ShieldCheck className="h-4 w-4 text-accent" />
