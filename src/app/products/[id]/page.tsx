@@ -132,11 +132,13 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
                           style={{ 
                             backgroundColor: '#3f4441',
                             backgroundImage: `
-                              radial-gradient(circle at 20% 30%, #5a5e5b 25%, transparent 25.5%),
-                              radial-gradient(circle at 80% 20%, #282c2a 30%, transparent 30.5%),
-                              radial-gradient(circle at 40% 70%, #4b514d 35%, transparent 35.5%),
-                              radial-gradient(circle at 80% 80%, #5a5e5b 25%, transparent 25.5%),
-                              radial-gradient(circle at 15% 75%, #282c2a 20%, transparent 20.5%),
+                              radial-gradient(circle at 12% 18%, #4b514d 22%, transparent 22.5%),
+                              radial-gradient(circle at 82% 12%, #282c2a 28%, transparent 28.5%),
+                              radial-gradient(circle at 48% 52%, #5a5e5b 32%, transparent 32.5%),
+                              radial-gradient(circle at 18% 82%, #282c2a 24%, transparent 24.5%),
+                              radial-gradient(circle at 88% 88%, #4b514d 20%, transparent 20.5%),
+                              radial-gradient(circle at 68% 58%, #5a5e5b 27%, transparent 27.5%),
+                              radial-gradient(circle at 28% 28%, #282c2a 17%, transparent 17.5%),
                               repeating-linear-gradient(45deg, rgba(0,0,0,0.05), rgba(0,0,0,0.05) 1px, transparent 1px, transparent 2px)
                             `,
                             backgroundBlendMode: 'normal'

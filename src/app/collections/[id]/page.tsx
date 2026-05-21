@@ -142,12 +142,14 @@ export default function CollectionPage({ params }: Props) {
                           style={{ 
                             backgroundColor: '#3f4441',
                             backgroundImage: `
-                              radial-gradient(circle at 15% 25%, #5a5e5b 22%, transparent 22.5%),
-                              radial-gradient(circle at 75% 15%, #282c2a 28%, transparent 28.5%),
-                              radial-gradient(circle at 45% 65%, #4b514d 35%, transparent 35.5%),
-                              radial-gradient(circle at 85% 75%, #5a5e5b 22%, transparent 22.5%),
-                              radial-gradient(circle at 10% 80%, #282c2a 18%, transparent 18.5%),
-                              repeating-linear-gradient(45deg, rgba(0,0,0,0.1), rgba(0,0,0,0.1) 2px, transparent 2px, transparent 4px)
+                              radial-gradient(circle at 12% 18%, #4b514d 22%, transparent 22.5%),
+                              radial-gradient(circle at 82% 12%, #282c2a 28%, transparent 28.5%),
+                              radial-gradient(circle at 48% 52%, #5a5e5b 32%, transparent 32.5%),
+                              radial-gradient(circle at 18% 82%, #282c2a 24%, transparent 24.5%),
+                              radial-gradient(circle at 88% 88%, #4b514d 20%, transparent 20.5%),
+                              radial-gradient(circle at 68% 58%, #5a5e5b 27%, transparent 27.5%),
+                              radial-gradient(circle at 28% 28%, #282c2a 17%, transparent 17.5%),
+                              repeating-linear-gradient(45deg, rgba(0,0,0,0.05), rgba(0,0,0,0.05) 1px, transparent 1px, transparent 2px)
                             `,
                             backgroundBlendMode: 'normal'
                           }} 
