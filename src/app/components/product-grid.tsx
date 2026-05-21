@@ -13,7 +13,7 @@ export default function ProductGrid() {
 
   return (
     <section className="container mx-auto py-20 px-4 md:px-6">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 min-h-[600px] lg:min-h-[800px] items-stretch">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 min-h-[600px] lg:min-h-[900px] items-stretch">
         
         {/* Retângulo Vertical: Edições Limitadas */}
         <div className="h-full">
