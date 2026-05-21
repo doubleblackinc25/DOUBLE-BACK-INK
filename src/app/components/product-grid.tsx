@@ -5,7 +5,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { ArrowRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
 
 export default function ProductGrid() {
   const limitedEditionsImage = PlaceHolderImages.find((img) => img.id === "limited-editions");
@@ -28,7 +27,7 @@ export default function ProductGrid() {
                   src={limitedEditionsImage.imageUrl}
                   alt={limitedEditionsImage.description}
                   fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  className="object-cover object-top transition-transform duration-700 group-hover:scale-110"
                   sizes="(max-width: 768px) 100vw, 50vw"
                   data-ai-hint={limitedEditionsImage.imageHint}
                 />
@@ -72,7 +71,7 @@ export default function ProductGrid() {
                   src={urbanEquipmentImage.imageUrl}
                   alt={urbanEquipmentImage.description}
                   fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  className="object-cover object-top transition-transform duration-700 group-hover:scale-110"
                   sizes="(max-width: 768px) 100vw, 50vw"
                   data-ai-hint={urbanEquipmentImage.imageHint}
                 />
@@ -105,7 +104,7 @@ export default function ProductGrid() {
                   src={performanceTrailImage.imageUrl}
                   alt={performanceTrailImage.description}
                   fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  className="object-cover object-top transition-transform duration-700 group-hover:scale-110"
                   sizes="(max-width: 768px) 100vw, 50vw"
                   data-ai-hint={performanceTrailImage.imageHint}
                 />
