@@ -51,7 +51,7 @@ export default function CollectionPage({ params }: Props) {
   };
 
   const productViews = [
-    { ...baseProductImage, id: "view-1", position: id === "limited-editions" ? "center 15%" : "center 30%" },
+    { ...baseProductImage, id: "view-1", position: id === "limited-editions" ? "center 5%" : "center 30%" },
     { 
       imageUrl: id === "performance-trail" ? "https://i.imgur.com/zTLskGD.png" : "https://picsum.photos/seed/view2/800/1000", 
       description: "Side View", 
