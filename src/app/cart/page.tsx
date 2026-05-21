@@ -24,10 +24,10 @@ export default function CartPage() {
     },
     {
       id: "performance-trail",
-      name: "Protótipo Performance Trail",
+      name: "STEALTH GRAY CAMO",
       collection: "Performance Trail",
       size: "M",
-      color: "Stealth Gray Camo",
+      color: "STEALTH GRAY CAMO",
       price: "R$ 650,00",
       image: PlaceHolderImages.find(img => img.id === "performance-trail")?.imageUrl || "https://picsum.photos/seed/product2/200/250"
     }
