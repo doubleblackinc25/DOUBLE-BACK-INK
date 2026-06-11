@@ -43,20 +43,24 @@ export default function CartPage() {
               items.map((item) => (
                 <div key={item.cartId} className="flex gap-6 group border-b border-border/40 pb-8">
                   <div className="relative w-24 h-32 md:w-32 md:h-40 rounded-lg overflow-hidden border border-border bg-secondary/20 shrink-0">
-                    <Image
-                      src={item.image}
-                      alt={item.name}
-                      fill
-                      className="object-cover"
-                      style={{ objectPosition: item.objectPosition }}
-                    />
+                    <Link href={`/products/${item.id}`}>
+                      <Image
+                        src={item.image}
+                        alt={item.name}
+                        fill
+                        className="object-cover transition-transform hover:scale-105 duration-500"
+                        style={{ objectPosition: item.objectPosition }}
+                      />
+                    </Link>
                   </div>
                   <div className="flex flex-col justify-between flex-grow">
                     <div className="space-y-1">
                       <div className="flex justify-between items-start">
-                        <h3 className="text-lg md:text-2xl font-logo uppercase tracking-wider text-white">
-                          {item.name}
-                        </h3>
+                        <Link href={`/products/${item.id}`} className="hover:text-accent transition-colors">
+                          <h3 className="text-lg md:text-2xl font-logo uppercase tracking-wider text-white">
+                            {item.name}
+                          </h3>
+                        </Link>
                         <Button 
                           variant="ghost" 
                           size="icon" 
@@ -113,12 +117,8 @@ export default function CartPage() {
               
               <div className="space-y-3 font-body text-sm">
                 <div className="flex justify-between text-muted-foreground uppercase tracking-tighter">
-                  <span>Subtotal</span>
-                  <span className="text-foreground font-bold">{formattedTotal}</span>
-                </div>
-                <div className="flex justify-between text-muted-foreground uppercase tracking-tighter">
                   <span>Envio</span>
-                  <span className="text-accent font-bold">GRÁTIS</span>
+                  <span className="text-foreground font-bold">GRÁTIS</span>
                 </div>
                 <Separator className="bg-border my-4" />
                 <div className="flex flex-col gap-1 items-end">
