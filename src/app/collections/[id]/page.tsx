@@ -12,6 +12,9 @@ import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { cn } from "@/lib/utils";
+import { useCart } from "@/hooks/use-cart";
+import { useToast } from "@/hooks/use-toast";
+import { useRouter } from "next/navigation";
 import {
   Carousel,
   CarouselContent,
@@ -28,6 +31,9 @@ type Props = {
 
 export default function CollectionPage({ params }: Props) {
   const { id } = use(params);
+  const router = useRouter();
+  const { addItem } = useCart();
+  const { toast } = useToast();
   
   const colors = id === "limited-editions" 
     ? [{ name: "MARROM", hex: "#A1887F" }] 
@@ -50,6 +56,14 @@ export default function CollectionPage({ params }: Props) {
       ? "DB SIGNATURE SERIES" 
       : id.replace('-', ' ').toUpperCase();
 
+  const prices: Record<string, { label: string, value: number }> = {
+    "limited-editions": { label: "R$ 890,00", value: 890 },
+    "performance-trail": { label: "R$ 650,00", value: 650 },
+    "urban-equipment": { label: "R$ 420,00", value: 420 },
+  };
+
+  const currentPrice = prices[id] || { label: "R$ 0,00", value: 0 };
+
   const baseProductImage = PlaceHolderImages.find((img) => img.id === id) || {
     imageUrl: "https://picsum.photos/seed/product/800/1000",
     description: "Product View",
@@ -71,11 +85,31 @@ export default function CollectionPage({ params }: Props) {
     },
   ];
 
+  const handleAddToCart = () => {
+    addItem({
+      id,
+      name: officialName,
+      collection: title,
+      size: selectedSize,
+      color: selectedColor,
+      price: currentPrice.label,
+      priceValue: currentPrice.value,
+      image: productViews[0].imageUrl,
+      objectPosition: productViews[0].position
+    });
+
+    toast({
+      title: "Equipamento Reservado",
+      description: `${officialName} adicionado ao inventário.`,
+    });
+
+    router.push('/cart');
+  };
+
   const getCircleStyle = (colorName: string) => {
     if (colorName === "MARROM") {
       return { backgroundColor: "#A1887F" };
     }
-    // Stealth Gray Camo pattern
     return { 
       backgroundColor: '#3a3e3c',
       backgroundImage: `
@@ -108,7 +142,6 @@ export default function CollectionPage({ params }: Props) {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 items-start py-8">
-          {/* Lado Esquerdo: Carrossel de Imagens */}
           <div className="space-y-6">
             <Carousel className="w-full max-w-xl mx-auto">
               <CarouselContent>
@@ -131,7 +164,6 @@ export default function CollectionPage({ params }: Props) {
                   </CarouselItem>
                 ))}
               </CarouselContent>
-              {/* Setas de navegação centralizadas abaixo da imagem */}
               <div className="flex justify-center gap-6 mt-8">
                 <CarouselPrevious className="static translate-y-0 h-12 w-12 border-2 border-border hover:border-accent hover:text-accent bg-transparent" />
                 <CarouselNext className="static translate-y-0 h-12 w-12 border-2 border-border hover:border-accent hover:text-accent bg-transparent" />
@@ -139,7 +171,6 @@ export default function CollectionPage({ params }: Props) {
             </Carousel>
           </div>
 
-          {/* Lado Direito: Detalhes e Seleção */}
           <div className="flex flex-col space-y-10">
             <div className="space-y-4">
               <h2 className="text-3xl md:text-4xl font-logo uppercase tracking-tight text-white">
@@ -148,21 +179,21 @@ export default function CollectionPage({ params }: Props) {
               <p className="text-lg text-muted-foreground font-body leading-relaxed">
                 Este protótipo foi projetado para ambientes de alta performance. Configure suas especificações abaixo para a reserva.
               </p>
+              <p className="text-3xl font-headline text-accent tracking-widest pt-4">{currentPrice.label}</p>
             </div>
 
             <div className="space-y-8 pt-8 border-t border-border">
-              {/* Seleção de Cor */}
               <div className="space-y-4">
                 <Label className="text-sm uppercase tracking-widest text-muted-foreground">
-                  {officialName}
+                  Estilo: {selectedColor}
                 </Label>
                 <RadioGroup 
                   value={selectedColor} 
                   onValueChange={setSelectedColor}
-                  className="flex flex-col items-start gap-4"
+                  className="flex flex-wrap gap-4"
                 >
                   {colors.map((color) => (
-                    <div key={color.name} className="flex flex-col items-start gap-3">
+                    <div key={color.name}>
                       <RadioGroupItem value={color.name} id={`color-${color.name}`} className="sr-only" />
                       <Label
                         htmlFor={`color-${color.name}`}
@@ -176,17 +207,15 @@ export default function CollectionPage({ params }: Props) {
                           style={getCircleStyle(color.name)} 
                         />
                       </Label>
-                      <span className="text-xs font-bold text-accent uppercase tracking-[0.2em]">{color.name}</span>
                     </div>
                   ))}
                 </RadioGroup>
               </div>
 
-              {/* Seleção de Tamanho */}
               <div className="space-y-4">
                 <Label className="text-sm uppercase tracking-widest text-muted-foreground">Tamanho</Label>
                 <RadioGroup 
-                  defaultValue={selectedSize} 
+                  value={selectedSize} 
                   onValueChange={setSelectedSize}
                   className="flex flex-wrap gap-3"
                 >
@@ -207,13 +236,15 @@ export default function CollectionPage({ params }: Props) {
                 </RadioGroup>
               </div>
 
-              {/* Botão de Ação */}
               <div className="space-y-4 pt-4">
-                <Button variant="accent" size="lg" className="w-full h-16 text-lg font-headline uppercase tracking-widest group" asChild>
-                  <Link href="/cart">
-                    <ShoppingCart className="mr-2 h-6 w-6 transition-transform group-hover:-translate-y-1" />
-                    Reservar Protótipo
-                  </Link>
+                <Button 
+                  variant="accent" 
+                  size="lg" 
+                  className="w-full h-16 text-lg font-headline uppercase tracking-widest group"
+                  onClick={handleAddToCart}
+                >
+                  <ShoppingCart className="mr-2 h-6 w-6 transition-transform group-hover:-translate-y-1" />
+                  Reservar Protótipo
                 </Button>
                 
                 <div className="flex items-center justify-center gap-2 text-muted-foreground text-sm font-body">

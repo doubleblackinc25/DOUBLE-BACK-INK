@@ -1,7 +1,9 @@
+
 import type { Metadata } from "next";
 import { Toaster } from "@/components/ui/toaster";
 import "./globals.css";
 import { cn } from "@/lib/utils";
+import { CartProvider } from "@/hooks/use-cart";
 
 export const metadata: Metadata = {
   title: "Double Black Supply",
@@ -32,8 +34,10 @@ export default function RootLayout({
           "bg-background text-foreground"
         )}
       >
-        {children}
-        <Toaster />
+        <CartProvider>
+          {children}
+          <Toaster />
+        </CartProvider>
       </body>
     </html>
   );

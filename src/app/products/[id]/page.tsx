@@ -12,6 +12,9 @@ import Link from "next/link";
 import Image from "next/image";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { cn } from "@/lib/utils";
+import { useCart } from "@/hooks/use-cart";
+import { useToast } from "@/hooks/use-toast";
+import { useRouter } from "next/navigation";
 import {
   Carousel,
   CarouselContent,
@@ -24,6 +27,9 @@ const sizes = ["P", "M", "G", "GG", "XG"];
 
 export default function ProductPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = use(params);
+  const router = useRouter();
+  const { addItem } = useCart();
+  const { toast } = useToast();
   
   const colors = id.includes("limited") 
     ? [{ name: "MARROM", hex: "#A1887F" }] 
@@ -37,6 +43,14 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
     : id.includes("limited") 
       ? "DB SIGNATURE SERIES" 
       : `Equipamento ${id.toUpperCase()} Alpine`;
+
+  const prices: Record<string, { label: string, value: number }> = {
+    "limited-editions": { label: "R$ 890,00", value: 890 },
+    "performance-trail": { label: "R$ 650,00", value: 650 },
+    "urban-equipment": { label: "R$ 420,00", value: 420 },
+  };
+
+  const currentPrice = prices[id.includes("limited") ? "limited-editions" : id.includes("trail") ? "performance-trail" : "urban-equipment"] || { label: "R$ 0,00", value: 0 };
 
   const baseProductImage = PlaceHolderImages.find((img) => img.id === (id.includes("limited") ? "limited-editions" : id.includes("trail") ? "performance-trail" : "urban-equipment")) || {
     imageUrl: "https://picsum.photos/seed/product/800/1000",
@@ -54,6 +68,27 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
       position: id.includes("trail") ? "center 15%" : "center"
     },
   ];
+
+  const handleAddToCart = () => {
+    addItem({
+      id,
+      name: productName,
+      collection: id.includes("limited") ? "Edições Limitadas" : id.includes("trail") ? "Performance Trail" : "Equipamento Urbano",
+      size: selectedSize,
+      color: selectedColor,
+      price: currentPrice.label,
+      priceValue: currentPrice.value,
+      image: productViews[0].imageUrl,
+      objectPosition: productViews[0].position
+    });
+
+    toast({
+      title: "Equipamento Reservado",
+      description: `${productName} adicionado ao inventário.`,
+    });
+
+    router.push('/cart');
+  };
 
   const getCircleStyle = (colorName: string) => {
     if (colorName === "MARROM") {
@@ -79,14 +114,13 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
     <div className="flex flex-col min-h-screen bg-background text-foreground">
       <Header />
       <main className="flex-grow container mx-auto py-12 px-4 md:px-6">
-        <Button variant="ghost" asChild className="mb-8 -ml-4 hover:bg-transparent hover:text-accent">
+        <Button variant="ghost" asChild className="mb-8 -ml-4 hover:bg-transparent hover:text-accent font-body text-xs uppercase tracking-widest">
           <Link href="/">
             <ArrowLeft className="mr-2 h-4 w-4" /> Voltar
           </Link>
         </Button>
 
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 items-start">
-          {/* Image Carousel */}
           <div className="space-y-6">
             <Carousel className="w-full max-w-xl mx-auto">
               <CarouselContent>
@@ -111,7 +145,6 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
                   </CarouselItem>
                 ))}
               </CarouselContent>
-              {/* Navigation arrows positioned below the image */}
               <div className="flex justify-center gap-6 mt-8">
                 <CarouselPrevious className="static translate-y-0 h-12 w-12 border-2 border-border hover:border-accent hover:text-accent bg-transparent" />
                 <CarouselNext className="static translate-y-0 h-12 w-12 border-2 border-border hover:border-accent hover:text-accent bg-transparent" />
@@ -119,7 +152,6 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
             </Carousel>
           </div>
 
-          {/* Product Details */}
           <div className="flex flex-col space-y-8">
             <div className="space-y-4">
               <h1 className="text-4xl md:text-5xl font-logo uppercase tracking-tight text-gradient-metallic py-4 pr-8">
@@ -128,69 +160,54 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
               <p className="text-xl text-muted-foreground font-body leading-relaxed">
                 Desenvolvido para expedições onde a margem de erro é zero. Construção em polímero reforçado e arquitetura de ventilação dinâmica.
               </p>
+              <p className="text-3xl font-headline text-accent tracking-widest pt-4">{currentPrice.label}</p>
             </div>
 
             <div className="space-y-6 pt-6 border-t border-border">
-              {/* Color Selection */}
               <div className="space-y-4">
                 <Label className="text-sm uppercase tracking-widest text-muted-foreground">
-                  {id.includes("trail") ? "STEALTH CAMO" : "DB SIGNATURE SERIES"}
+                  Estilo: {selectedColor}
                 </Label>
                 <RadioGroup 
                   value={selectedColor} 
                   onValueChange={setSelectedColor}
-                  className="flex flex-col items-start gap-4"
+                  className="flex flex-wrap gap-4"
                 >
                   {colors.map((color) => (
-                    <div key={color.name} className="flex flex-col items-start gap-3">
-                      <RadioGroupItem
-                        value={color.name}
-                        id={`color-${color.name}`}
-                        className="peer sr-only"
-                      />
+                    <div key={color.name}>
+                      <RadioGroupItem value={color.name} id={`color-${color.name}`} className="sr-only" />
                       <Label
                         htmlFor={`color-${color.name}`}
                         className={cn(
                           "w-16 h-16 rounded-full border-2 border-transparent cursor-pointer transition-all flex items-center justify-center p-0.5 shadow-[0_0_20px_rgba(0,0,0,0.5)] overflow-hidden",
                           selectedColor === color.name ? "border-accent scale-110 shadow-accent/20" : "hover:border-white/50"
                         )}
-                        title={color.name}
                       >
                         <span 
-                          className="w-full h-full rounded-full shadow-inner" 
-                          style={getCircleStyle(color.name)}
+                          className="w-full h-full rounded-full" 
+                          style={getCircleStyle(color.name)} 
                         />
                       </Label>
-                      <span className="text-xs font-bold text-accent uppercase tracking-[0.2em]">{color.name}</span>
                     </div>
                   ))}
                 </RadioGroup>
               </div>
 
-              {/* Size Selection */}
               <div className="space-y-4">
-                <div className="flex justify-between items-end">
-                  <Label className="text-sm uppercase tracking-widest text-muted-foreground">Tamanho</Label>
-                  <span className="text-xs text-muted-foreground underline cursor-pointer hover:text-accent">Guia de Medidas</span>
-                </div>
+                <Label className="text-sm uppercase tracking-widest text-muted-foreground">Tamanho</Label>
                 <RadioGroup 
-                  defaultValue={selectedSize} 
+                  value={selectedSize} 
                   onValueChange={setSelectedSize}
                   className="flex flex-wrap gap-3"
                 >
                   {sizes.map((size) => (
                     <div key={size}>
-                      <RadioGroupItem
-                        value={size}
-                        id={`size-${size}`}
-                        className="peer sr-only"
-                      />
+                      <RadioGroupItem value={size} id={`size-${size}`} className="sr-only" />
                       <Label
                         htmlFor={`size-${size}`}
                         className={cn(
                           "flex h-12 w-14 items-center justify-center rounded-md border-2 border-border bg-secondary/10 text-sm font-bold uppercase transition-all cursor-pointer",
-                          "peer-data-[state=checked]:border-accent peer-data-[state=checked]:bg-accent peer-data-[state=checked]:text-accent-foreground",
-                          "hover:bg-secondary/30"
+                          selectedSize === size ? "border-accent bg-accent text-accent-foreground" : "hover:bg-secondary/30"
                         )}
                       >
                         {size}
@@ -200,13 +217,15 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
                 </RadioGroup>
               </div>
 
-              {/* Action Buttons */}
               <div className="space-y-4 pt-8">
-                <Button variant="accent" size="lg" className="w-full h-14 text-lg font-headline uppercase tracking-widest group" asChild>
-                  <Link href="/cart">
-                    <ShoppingCart className="mr-2 h-5 w-5 transition-transform group-hover:-translate-y-1" />
-                    Reservar Protótipo
-                  </Link>
+                <Button 
+                  variant="accent" 
+                  size="lg" 
+                  className="w-full h-14 text-lg font-headline uppercase tracking-widest group"
+                  onClick={handleAddToCart}
+                >
+                  <ShoppingCart className="mr-2 h-5 w-5 transition-transform group-hover:-translate-y-1" />
+                  Reservar Protótipo
                 </Button>
                 
                 <div className="flex items-center justify-center gap-2 text-muted-foreground text-sm font-body">
@@ -216,7 +235,6 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
               </div>
             </div>
 
-            {/* Tech Specs Summary */}
             <div className="bg-secondary/20 p-6 rounded-lg border border-border/50">
               <h3 className="font-logo uppercase tracking-widest text-sm mb-4">DNA do Equipamento</h3>
               <ul className="grid grid-cols-2 gap-y-3 gap-x-6 text-xs font-body text-muted-foreground uppercase tracking-tighter">

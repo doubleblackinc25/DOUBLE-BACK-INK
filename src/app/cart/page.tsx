@@ -7,32 +7,16 @@ import { Button } from "@/components/ui/button";
 import { ShoppingBag, ArrowLeft, Trash2, ShieldCheck, ChevronRight } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
-import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { Separator } from "@/components/ui/separator";
+import { useCart } from "@/hooks/use-cart";
 
 export default function CartPage() {
-  const cartItems = [
-    {
-      id: "limited-editions",
-      name: "DB SIGNATURE SERIES",
-      collection: "Edições Limitadas",
-      size: "G",
-      color: "MARROM",
-      price: "R$ 890,00",
-      image: PlaceHolderImages.find(img => img.id === "limited-editions")?.imageUrl || "https://picsum.photos/seed/product/200/250",
-      objectPosition: "center top"
-    },
-    {
-      id: "performance-trail",
-      name: "STEALTH CAMO",
-      collection: "Performance Trail",
-      size: "M",
-      color: "CINZA",
-      price: "R$ 650,00",
-      image: PlaceHolderImages.find(img => img.id === "performance-trail")?.imageUrl || "https://picsum.photos/seed/product2/200/250",
-      objectPosition: "center"
-    }
-  ];
+  const { items, removeItem, updateQuantity, totalPrice, totalItems } = useCart();
+
+  const formattedTotal = new Intl.NumberFormat('pt-BR', {
+    style: 'currency',
+    currency: 'BRL',
+  }).format(totalPrice);
 
   return (
     <div className="flex flex-col min-h-screen bg-background text-foreground">
@@ -49,15 +33,15 @@ export default function CartPage() {
               Seu Equipamento
             </h1>
           </div>
-          <p className="text-muted-foreground font-body uppercase text-xs tracking-[0.2em] mb-4 md:mb-6">[{cartItems.length}] itens prontos para expedição</p>
+          <p className="text-muted-foreground font-body uppercase text-xs tracking-[0.2em] mb-4 md:mb-6">[{totalItems}] itens prontos para expedição</p>
         </div>
 
         <div className="grid lg:grid-cols-3 gap-12">
           {/* Listagem de Itens */}
           <div className="lg:col-span-2 space-y-8">
-            {cartItems.length > 0 ? (
-              cartItems.map((item) => (
-                <div key={item.id} className="flex gap-6 group border-b border-border/40 pb-8">
+            {items.length > 0 ? (
+              items.map((item) => (
+                <div key={item.cartId} className="flex gap-6 group border-b border-border/40 pb-8">
                   <div className="relative w-24 h-32 md:w-32 md:h-40 rounded-lg overflow-hidden border border-border bg-secondary/20 shrink-0">
                     <Image
                       src={item.image}
@@ -73,7 +57,12 @@ export default function CartPage() {
                         <h3 className="text-lg md:text-2xl font-logo uppercase tracking-wider text-white">
                           {item.name}
                         </h3>
-                        <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-destructive -mr-2">
+                        <Button 
+                          variant="ghost" 
+                          size="icon" 
+                          className="text-muted-foreground hover:text-destructive -mr-2"
+                          onClick={() => removeItem(item.cartId)}
+                        >
                           <Trash2 className="h-4 w-4" />
                         </Button>
                       </div>
@@ -85,9 +74,19 @@ export default function CartPage() {
                     </div>
                     <div className="flex justify-between items-end mt-4">
                       <div className="flex items-center justify-center border border-border rounded overflow-hidden">
-                        <button className="px-3 py-1 hover:text-accent transition-colors text-sm">-</button>
-                        <span className="px-3 py-1 border-x border-border text-xs font-bold bg-secondary/10">1</span>
-                        <button className="px-3 py-1 hover:text-accent transition-colors text-sm">+</button>
+                        <button 
+                          className="px-3 py-1 hover:text-accent transition-colors text-sm"
+                          onClick={() => updateQuantity(item.cartId, -1)}
+                        >
+                          -
+                        </button>
+                        <span className="px-3 py-1 border-x border-border text-xs font-bold bg-secondary/10">{item.quantity}</span>
+                        <button 
+                          className="px-3 py-1 hover:text-accent transition-colors text-sm"
+                          onClick={() => updateQuantity(item.cartId, 1)}
+                        >
+                          +
+                        </button>
                       </div>
                       <span className="text-xl md:text-2xl font-headline tracking-widest text-white">{item.price}</span>
                     </div>
@@ -98,6 +97,9 @@ export default function CartPage() {
               <div className="py-20 text-center border-2 border-dashed border-border rounded-xl">
                 <ShoppingBag className="h-12 w-12 mx-auto mb-4 opacity-20" />
                 <p className="text-muted-foreground font-body">Seu inventário está vazio.</p>
+                <Button variant="outline" asChild className="mt-6 uppercase font-headline tracking-widest">
+                  <Link href="/">Voltar ao Drop</Link>
+                </Button>
               </div>
             )}
           </div>
@@ -112,7 +114,7 @@ export default function CartPage() {
               <div className="space-y-3 font-body text-sm">
                 <div className="flex justify-between text-muted-foreground uppercase tracking-tighter">
                   <span>Subtotal</span>
-                  <span className="text-foreground font-bold">R$ 1.540,00</span>
+                  <span className="text-foreground font-bold">{formattedTotal}</span>
                 </div>
                 <div className="flex justify-between text-muted-foreground uppercase tracking-tighter">
                   <span>Envio</span>
@@ -121,12 +123,19 @@ export default function CartPage() {
                 <Separator className="bg-border my-4" />
                 <div className="flex flex-col gap-1 items-end">
                   <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground">Total da Reserva</span>
-                  <span className="text-4xl font-headline tracking-tight text-gradient-metallic pr-6 py-1">R$ 1.540,00</span>
+                  <span className="text-4xl font-headline tracking-tight text-gradient-metallic pr-6 py-1">
+                    {formattedTotal}
+                  </span>
                 </div>
               </div>
 
               <div className="space-y-4 pt-4">
-                <Button variant="accent" size="lg" className="w-full h-16 text-lg font-headline uppercase tracking-normal group shadow-[0_0_20px_rgba(242,113,33,0.15)] flex items-center justify-center px-6">
+                <Button 
+                  variant="accent" 
+                  size="lg" 
+                  className="w-full h-16 text-lg font-headline uppercase tracking-normal group shadow-[0_0_20px_rgba(242,113,33,0.15)] flex items-center justify-center px-6"
+                  disabled={items.length === 0}
+                >
                   <span className="whitespace-nowrap">Finalizar Reserva</span>
                   <ChevronRight className="ml-2 h-5 w-5 shrink-0 transition-transform group-hover:translate-x-1" />
                 </Button>
