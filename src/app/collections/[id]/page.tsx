@@ -35,11 +35,13 @@ export default function CollectionPage({ params }: Props) {
   const { addItem } = useCart();
   const { toast } = useToast();
   
-  const colors = [
-    { name: "OFF WHITE", hex: "#FAF9F6" },
-    { name: "PRETO", hex: "#000000" },
-    { name: "CINZA", hex: "#3f4441" }
-  ];
+  const colors = id === "limited-editions" 
+    ? [{ name: "MARROM", hex: "#5D4037" }]
+    : [
+        { name: "OFF WHITE", hex: "#FAF9F6" },
+        { name: "PRETO", hex: "#000000" },
+        { name: "CINZA", hex: "#3f4441" }
+      ];
 
   const [selectedSize, setSelectedSize] = useState("M");
   const [selectedColor, setSelectedColor] = useState(colors[0].name);
@@ -118,6 +120,9 @@ export default function CollectionPage({ params }: Props) {
       case "PRETO":
         return { backgroundColor: "#000000" };
       case "CINZA":
+        return { backgroundColor: "#3f4441" };
+      case "MARROM":
+        return { backgroundColor: "#5D4037" };
       default:
         return { backgroundColor: "#3f4441" };
     }
