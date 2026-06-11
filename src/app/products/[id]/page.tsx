@@ -35,7 +35,7 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
   const isTrail = id.includes("trail");
   
   const colors = isLimited
-    ? [{ name: "MARROM", hex: "#795548" }]
+    ? [{ name: "MARROM", hex: "#8D6E63" }]
     : isTrail
       ? [{ name: "CAMO GREY", hex: "#4a4a4a" }]
       : [
@@ -114,10 +114,16 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
       case "CINZA":
         return { backgroundColor: "#3f4441" };
       case "MARROM":
-        return { backgroundColor: "#795548" };
+        return { backgroundColor: "#8D6E63" };
       case "CAMO GREY":
         return { 
-          backgroundImage: `repeating-linear-gradient(45deg, #3f4441 0px, #3f4441 5px, #4a4a4a 5px, #4a4a4a 10px, #2a2d2b 10px, #2a2d2b 15px)`,
+          background: "#3f4441",
+          backgroundImage: `
+            radial-gradient(circle at 10% 20%, #4a4a4a 0%, #4a4a4a 35%, transparent 35.5%),
+            radial-gradient(circle at 80% 10%, #2a2d2b 0%, #2a2d2b 30%, transparent 30.5%),
+            radial-gradient(circle at 40% 70%, #5a5a5a 0%, #5a5a5a 25%, transparent 25.5%),
+            radial-gradient(circle at 90% 80%, #353535 0%, #353535 20%, transparent 20.5%)
+          `,
           backgroundSize: "cover"
         };
       default:
