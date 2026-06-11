@@ -14,7 +14,7 @@ import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { cn } from "@/lib/utils";
 import { useCart } from "@/hooks/use-cart";
 import { useToast } from "@/hooks/use-toast";
-import { useRouter } from "next/navigation";
+import { useRouter } from "navigation";
 import {
   Carousel,
   CarouselContent,
@@ -51,7 +51,7 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
   const productName = id === "urban-alpha"
     ? "Camiseta Reaper oversized"
     : id === "urban-beta"
-      ? "Camiseta DB URBAN"
+      ? "CAMISETA BIKE DIVISION"
       : isTrail 
         ? "STEALTH CAMO" 
         : isLimited 
@@ -75,10 +75,7 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
     imageHint: "technical product"
   };
 
-  const productViews = isUrban ? [
-    { imageUrl: "https://i.imgur.com/yaYYNvs.png", description: "Urban Front View", imageHint: "tactical urban", id: "view-1", position: "center" },
-    { imageUrl: "https://i.imgur.com/kAOjqU0.png", description: "Urban Side View", imageHint: "tactical urban side", id: "view-2", position: "center" },
-  ] : [
+  let productViews = [
     { ...baseProductImage, id: "view-1", position: isLimited ? "center 0%" : "center 30%" },
     { 
       imageUrl: isTrail ? "https://i.imgur.com/zTLskGD.png" : isLimited ? "https://i.imgur.com/BN9U7qI.png" : "https://picsum.photos/seed/view2/800/1000", 
@@ -88,6 +85,18 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
       position: isTrail ? "center 15%" : "center"
     },
   ];
+
+  if (id === "urban-alpha") {
+    productViews = [
+      { imageUrl: "https://i.imgur.com/yaYYNvs.png", description: "Urban Front View", imageHint: "tactical urban", id: "view-1", position: "center" },
+      { imageUrl: "https://i.imgur.com/kAOjqU0.png", description: "Urban Side View", imageHint: "tactical urban side", id: "view-2", position: "center" },
+    ];
+  } else if (id === "urban-beta") {
+    productViews = [
+      { imageUrl: "https://i.imgur.com/YRaTeop.png", description: "Bike Division Front", imageHint: "bike technical", id: "view-1", position: "center" },
+      { imageUrl: "https://i.imgur.com/U5CAWkF.png", description: "Bike Division Side", imageHint: "bike technical side", id: "view-2", position: "center" },
+    ];
+  }
 
   const handleAddToCart = () => {
     addItem({

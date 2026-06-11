@@ -72,13 +72,13 @@ function ProductSection({ product, collectionTitle, colors }: { product: Product
   const getCircleStyle = (colorName: string) => {
     switch (colorName) {
       case "OFF WHITE":
-        return { backgroundColor: "#FAF9F6" }; // Amarelado Off White ajustado
+        return { backgroundColor: "#FAF9F6" };
       case "PRETO":
         return { backgroundColor: "#000000" };
       case "CINZA":
         return { backgroundColor: "#3f4441" };
       case "MARROM":
-        return { backgroundColor: "#BCAAA4" }; // Marrom claro
+        return { backgroundColor: "#BCAAA4" };
       case "CAMO GREY":
         return { 
           background: "#4b4b4b",
@@ -251,12 +251,12 @@ export default function CollectionPage({ params }: { params: Promise<{ id: strin
         },
         {
           id: "urban-beta",
-          name: "Camiseta DB URBAN",
+          name: "CAMISETA BIKE DIVISION",
           price: { label: "R$ 99,90", value: 99.9 },
           description: "Expansão da linha Alpha. Ergonomia aprimorada para deslocamentos rápidos em ambientes hostis.",
           views: [
-            { imageUrl: "https://i.imgur.com/yaYYNvs.png", description: "Urban Front View", imageHint: "tactical urban", id: "v1", position: "center" },
-            { imageUrl: "https://i.imgur.com/kAOjqU0.png", description: "Urban Side View", imageHint: "tactical urban side", id: "v2", position: "center" },
+            { imageUrl: "https://i.imgur.com/YRaTeop.png", description: "Bike Division Front", imageHint: "bike technical", id: "v1", position: "center" },
+            { imageUrl: "https://i.imgur.com/U5CAWkF.png", description: "Bike Division Side", imageHint: "bike technical side", id: "v2", position: "center" },
           ]
         }
       ];
