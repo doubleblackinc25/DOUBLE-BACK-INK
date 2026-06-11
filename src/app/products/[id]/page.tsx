@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, use } from "react";
@@ -52,7 +53,6 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
       id: "view-2",
       position: id.includes("trail") ? "center 15%" : "center"
     },
-    { imageUrl: "https://picsum.photos/seed/view3/800/1000", description: "Detail View", imageHint: "product detail", id: "view-3", position: "center" },
   ];
 
   const getCircleStyle = (colorName: string) => {
@@ -104,7 +104,7 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
                       />
                       {index === 0 && (
                         <div className="absolute top-4 left-4 bg-accent text-accent-foreground px-3 py-1 text-xs font-bold uppercase tracking-widest rounded-full">
-                          Protótipo {id.toUpperCase()}
+                          {productName}
                         </div>
                       )}
                     </div>

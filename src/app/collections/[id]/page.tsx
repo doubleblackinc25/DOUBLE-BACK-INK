@@ -65,7 +65,6 @@ export default function CollectionPage({ params }: Props) {
       id: "view-2",
       position: id === "performance-trail" ? "center 15%" : "center"
     },
-    { imageUrl: "https://picsum.photos/seed/view3/800/1000", description: "Detail View", imageHint: "product detail", id: "view-3", position: "center" },
   ];
 
   const getCircleStyle = (colorName: string) => {
