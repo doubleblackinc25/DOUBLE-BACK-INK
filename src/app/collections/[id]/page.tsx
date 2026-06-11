@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState, use } from "react";
@@ -36,7 +35,7 @@ export default function CollectionPage({ params }: Props) {
   const { toast } = useToast();
   
   const colors = id === "limited-editions" 
-    ? [{ name: "MARROM", hex: "#8D6E63" }]
+    ? [{ name: "MARROM", hex: "#BCAAA4" }]
     : id === "performance-trail"
       ? [{ name: "CAMO GREY", hex: "#4a4a4a" }]
       : [
@@ -124,7 +123,7 @@ export default function CollectionPage({ params }: Props) {
       case "CINZA":
         return { backgroundColor: "#3f4441" };
       case "MARROM":
-        return { backgroundColor: "#8D6E63" };
+        return { backgroundColor: "#BCAAA4" };
       case "CAMO GREY":
         return { 
           background: "#4b4b4b",
@@ -215,7 +214,7 @@ export default function CollectionPage({ params }: Props) {
                       <Label
                         htmlFor={`color-${color.name}`}
                         className={cn(
-                          "w-16 h-16 rounded-full border-2 border-transparent cursor-pointer transition-all flex items-center justify-center p-0.5 shadow-[0_0_20px_rgba(0,0,0,0.5)] overflow-hidden",
+                          "w-16 h-16 rounded-full border-2 border-white cursor-pointer transition-all flex items-center justify-center p-0.5 shadow-[0_0_20px_rgba(0,0,0,0.5)] overflow-hidden",
                           selectedColor === color.name ? "border-accent scale-110 shadow-accent/20" : "hover:border-white/50"
                         )}
                       >

@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState, use } from "react";
@@ -33,9 +32,10 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
   
   const isLimited = id.includes("limited");
   const isTrail = id.includes("trail");
+  const isUrban = id.includes("urban");
   
   const colors = isLimited
-    ? [{ name: "MARROM", hex: "#8D6E63" }]
+    ? [{ name: "MARROM", hex: "#BCAAA4" }]
     : isTrail
       ? [{ name: "CAMO GREY", hex: "#4a4a4a" }]
       : [
@@ -47,11 +47,11 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
   const [selectedSize, setSelectedSize] = useState("M");
   const [selectedColor, setSelectedColor] = useState(colors[0].name);
 
-  const productName = id.includes("trail") 
+  const productName = isTrail 
     ? "STEALTH CAMO" 
-    : id.includes("limited") 
+    : isLimited 
       ? "DB SIGNATURE SERIES" 
-      : id.includes("urban") 
+      : isUrban 
         ? "EQUIPAMENTO URBANO" 
         : `Equipamento ${id.toUpperCase()} Alpine`;
 
@@ -61,7 +61,7 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
     "urban-equipment": { label: "R$ 99,90", value: 99.9 },
   };
 
-  const priceKey = id.includes("limited") ? "limited-editions" : id.includes("trail") ? "performance-trail" : "urban-equipment";
+  const priceKey = isLimited ? "limited-editions" : isTrail ? "performance-trail" : "urban-equipment";
   const currentPrice = prices[priceKey] || { label: "R$ 0,00", value: 0 };
 
   const baseProductImage = PlaceHolderImages.find((img) => img.id === priceKey) || {
@@ -70,17 +70,17 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
     imageHint: "technical product"
   };
 
-  const productViews = id.includes("urban") ? [
+  const productViews = isUrban ? [
     { imageUrl: "https://i.imgur.com/yaYYNvs.png", description: "Urban Front View", imageHint: "tactical urban", id: "view-1", position: "center" },
     { imageUrl: "https://i.imgur.com/kAOjqU0.png", description: "Urban Side View", imageHint: "tactical urban side", id: "view-2", position: "center" },
   ] : [
-    { ...baseProductImage, id: "view-1", position: id.includes("limited") ? "center 0%" : "center 30%" },
+    { ...baseProductImage, id: "view-1", position: isLimited ? "center 0%" : "center 30%" },
     { 
-      imageUrl: id.includes("trail") ? "https://i.imgur.com/zTLskGD.png" : id.includes("limited") ? "https://i.imgur.com/BN9U7qI.png" : "https://picsum.photos/seed/view2/800/1000", 
+      imageUrl: isTrail ? "https://i.imgur.com/zTLskGD.png" : isLimited ? "https://i.imgur.com/BN9U7qI.png" : "https://picsum.photos/seed/view2/800/1000", 
       description: "Side View", 
       imageHint: "product side", 
       id: "view-2",
-      position: id.includes("trail") ? "center 15%" : "center"
+      position: isTrail ? "center 15%" : "center"
     },
   ];
 
@@ -88,7 +88,7 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
     addItem({
       id,
       name: productName,
-      collection: id.includes("limited") ? "Edições Limitadas" : id.includes("trail") ? "Performance Trail" : "Equipamento Urbano",
+      collection: isLimited ? "Edições Limitadas" : isTrail ? "Performance Trail" : "Equipamento Urbano",
       size: selectedSize,
       color: selectedColor,
       price: currentPrice.label,
@@ -114,7 +114,7 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
       case "CINZA":
         return { backgroundColor: "#3f4441" };
       case "MARROM":
-        return { backgroundColor: "#8D6E63" };
+        return { backgroundColor: "#BCAAA4" };
       case "CAMO GREY":
         return { 
           background: "#4b4b4b",
@@ -202,7 +202,7 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
                       <Label
                         htmlFor={`color-${color.name}`}
                         className={cn(
-                          "w-16 h-16 rounded-full border-2 border-transparent cursor-pointer transition-all flex items-center justify-center p-0.5 shadow-[0_0_20px_rgba(0,0,0,0.5)] overflow-hidden",
+                          "w-16 h-16 rounded-full border-2 border-white cursor-pointer transition-all flex items-center justify-center p-0.5 shadow-[0_0_20px_rgba(0,0,0,0.5)] overflow-hidden",
                           selectedColor === color.name ? "border-accent scale-110 shadow-accent/20" : "hover:border-white/50"
                         )}
                       >
