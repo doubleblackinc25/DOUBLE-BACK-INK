@@ -32,13 +32,17 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
   const { toast } = useToast();
   
   const isLimited = id.includes("limited");
+  const isTrail = id.includes("trail");
+  
   const colors = isLimited
     ? [{ name: "MARROM", hex: "#795548" }]
-    : [
-        { name: "OFF WHITE", hex: "#FAF9F6" },
-        { name: "PRETO", hex: "#000000" },
-        { name: "CINZA", hex: "#3f4441" }
-      ];
+    : isTrail
+      ? [{ name: "CAMO GREY", hex: "#4a4a4a" }]
+      : [
+          { name: "OFF WHITE", hex: "#FAF9F6" },
+          { name: "PRETO", hex: "#000000" },
+          { name: "CINZA", hex: "#3f4441" }
+        ];
 
   const [selectedSize, setSelectedSize] = useState("M");
   const [selectedColor, setSelectedColor] = useState(colors[0].name);
@@ -111,6 +115,11 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
         return { backgroundColor: "#3f4441" };
       case "MARROM":
         return { backgroundColor: "#795548" };
+      case "CAMO GREY":
+        return { 
+          backgroundImage: `repeating-linear-gradient(45deg, #3f4441 0px, #3f4441 5px, #4a4a4a 5px, #4a4a4a 10px, #2a2d2b 10px, #2a2d2b 15px)`,
+          backgroundSize: "cover"
+        };
       default:
         return { backgroundColor: "#3f4441" };
     }
