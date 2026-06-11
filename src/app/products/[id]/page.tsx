@@ -46,7 +46,7 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
 
   const prices: Record<string, { label: string, value: number }> = {
     "limited-editions": { label: "R$ 129,90", value: 129.9 },
-    "performance-trail": { label: "R$ 650,00", value: 650 },
+    "performance-trail": { label: "R$ 129,90", value: 129.9 },
     "urban-equipment": { label: "R$ 420,00", value: 420 },
   };
 
