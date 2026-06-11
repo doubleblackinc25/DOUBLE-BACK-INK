@@ -14,7 +14,7 @@ import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { cn } from "@/lib/utils";
 import { useCart } from "@/hooks/use-cart";
 import { useToast } from "@/hooks/use-toast";
-import { useRouter } from "navigation";
+import { useRouter } from "next/navigation";
 import {
   Carousel,
   CarouselContent,
@@ -40,7 +40,7 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
     : isTrail
       ? [{ name: "CAMO GREY", hex: "#4a4a4a" }]
       : [
-          { name: "OFF WHITE", hex: "#FAF9F6" },
+          { name: "OFF WHITE", hex: "#FDF5E6" },
           { name: "PRETO", hex: "#000000" },
           { name: "CINZA", hex: "#3f4441" }
         ];
@@ -122,7 +122,7 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
   const getCircleStyle = (colorName: string) => {
     switch (colorName) {
       case "OFF WHITE":
-        return { backgroundColor: "#FAF9F6" };
+        return { backgroundColor: "#FDF5E6" };
       case "PRETO":
         return { backgroundColor: "#000000" };
       case "CINZA":

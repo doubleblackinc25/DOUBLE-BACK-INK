@@ -72,7 +72,7 @@ function ProductSection({ product, collectionTitle, colors }: { product: Product
   const getCircleStyle = (colorName: string) => {
     switch (colorName) {
       case "OFF WHITE":
-        return { backgroundColor: "#FAF9F6" };
+        return { backgroundColor: "#FDF5E6" };
       case "PRETO":
         return { backgroundColor: "#000000" };
       case "CINZA":
@@ -229,7 +229,7 @@ export default function CollectionPage({ params }: { params: Promise<{ id: strin
     : id === "performance-trail"
       ? [{ name: "CAMO GREY", hex: "#4a4a4a" }]
       : [
-          { name: "OFF WHITE", hex: "#FAF9F6" },
+          { name: "OFF WHITE", hex: "#FDF5E6" },
           { name: "PRETO", hex: "#000000" },
           { name: "CINZA", hex: "#3f4441" }
         ];
