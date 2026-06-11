@@ -47,7 +47,7 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
   const productViews = [
     { ...baseProductImage, id: "view-1", position: id.includes("limited") ? "center 0%" : "center 30%" },
     { 
-      imageUrl: id.includes("trail") ? "https://i.imgur.com/zTLskGD.png" : id.includes("limited") ? "https://i.imgur.com/mM0VQa7.png" : "https://picsum.photos/seed/view2/800/1000", 
+      imageUrl: id.includes("trail") ? "https://i.imgur.com/zTLskGD.png" : id.includes("limited") ? "https://i.imgur.com/BN9U7qI.png" : "https://picsum.photos/seed/view2/800/1000", 
       description: "Side View", 
       imageHint: "product side", 
       id: "view-2",

@@ -62,7 +62,7 @@ export default function CollectionPage({ params }: Props) {
       imageUrl: id === "performance-trail" 
         ? "https://i.imgur.com/zTLskGD.png" 
         : id === "limited-editions" 
-          ? "https://i.imgur.com/mM0VQa7.png" 
+          ? "https://i.imgur.com/BN9U7qI.png" 
           : "https://picsum.photos/seed/view2/800/1000", 
       description: "Side View", 
       imageHint: "product side", 
