@@ -114,7 +114,7 @@ export default function CollectionPage({ params }: Props) {
               <CarouselContent>
                 {productViews.map((view, index) => (
                   <CarouselItem key={view.id}>
-                    <div className="relative aspect-square overflow-hidden rounded-lg border-2 border-border bg-secondary/10 shadow-2xl mx-auto max-w-[480px]">
+                    <div className="relative aspect-square overflow-hidden rounded-lg border-2 border-border bg-secondary/10 shadow-2xl mx-auto max-w-[400px]">
                       <Image
                         src={view.imageUrl}
                         alt={view.description}
