@@ -45,7 +45,7 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
       : `Equipamento ${id.toUpperCase()} Alpine`;
 
   const prices: Record<string, { label: string, value: number }> = {
-    "limited-editions": { label: "R$ 890,00", value: 890 },
+    "limited-editions": { label: "R$ 129,90", value: 129.9 },
     "performance-trail": { label: "R$ 650,00", value: 650 },
     "urban-equipment": { label: "R$ 420,00", value: 420 },
   };
