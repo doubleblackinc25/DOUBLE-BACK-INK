@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, use } from "react";
@@ -39,7 +40,7 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
     : isTrail
       ? [{ name: "CAMO GREY", hex: "#4a4a4a" }]
       : [
-          { name: "OFF WHITE", hex: "#FDFBD3" },
+          { name: "OFF WHITE", hex: "#FAF9F6" },
           { name: "PRETO", hex: "#000000" },
           { name: "CINZA", hex: "#3f4441" }
         ];
@@ -47,13 +48,17 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
   const [selectedSize, setSelectedSize] = useState("M");
   const [selectedColor, setSelectedColor] = useState(colors[0].name);
 
-  const productName = isTrail 
-    ? "STEALTH CAMO" 
-    : isLimited 
-      ? "DB SIGNATURE SERIES" 
-      : isUrban 
-        ? "EQUIPAMENTO URBANO" 
-        : `Equipamento ${id.toUpperCase()} Alpine`;
+  const productName = id === "urban-alpha"
+    ? "Camiseta Reaper oversized"
+    : id === "urban-beta"
+      ? "Camiseta DB URBAN"
+      : isTrail 
+        ? "STEALTH CAMO" 
+        : isLimited 
+          ? "DB SIGNATURE SERIES" 
+          : isUrban 
+            ? "EQUIPAMENTO URBANO" 
+            : `Equipamento ${id.toUpperCase()} Alpine`;
 
   const prices: Record<string, { label: string, value: number }> = {
     "limited-editions": { label: "R$ 129,90", value: 129.9 },
@@ -108,7 +113,7 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
   const getCircleStyle = (colorName: string) => {
     switch (colorName) {
       case "OFF WHITE":
-        return { backgroundColor: "#FDFBD3" };
+        return { backgroundColor: "#FAF9F6" };
       case "PRETO":
         return { backgroundColor: "#000000" };
       case "CINZA":
