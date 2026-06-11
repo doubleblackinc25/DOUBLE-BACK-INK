@@ -42,12 +42,14 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
     ? "STEALTH CAMO" 
     : id.includes("limited") 
       ? "DB SIGNATURE SERIES" 
-      : `Equipamento ${id.toUpperCase()} Alpine`;
+      : id.includes("urban") 
+        ? "EQUIPAMENTO URBANO" 
+        : `Equipamento ${id.toUpperCase()} Alpine`;
 
   const prices: Record<string, { label: string, value: number }> = {
     "limited-editions": { label: "R$ 129,90", value: 129.9 },
     "performance-trail": { label: "R$ 129,90", value: 129.9 },
-    "urban-equipment": { label: "R$ 420,00", value: 420 },
+    "urban-equipment": { label: "R$ 99,90", value: 99.9 },
   };
 
   const priceKey = id.includes("limited") ? "limited-editions" : id.includes("trail") ? "performance-trail" : "urban-equipment";
@@ -59,7 +61,10 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
     imageHint: "technical product"
   };
 
-  const productViews = [
+  const productViews = id.includes("urban") ? [
+    { imageUrl: "https://i.imgur.com/yaYYNvs.png", description: "Urban Front View", imageHint: "tactical urban", id: "view-1", position: "center" },
+    { imageUrl: "https://i.imgur.com/kAOjqU0.png", description: "Urban Side View", imageHint: "tactical urban side", id: "view-2", position: "center" },
+  ] : [
     { ...baseProductImage, id: "view-1", position: id.includes("limited") ? "center 0%" : "center 30%" },
     { 
       imageUrl: id.includes("trail") ? "https://i.imgur.com/zTLskGD.png" : id.includes("limited") ? "https://i.imgur.com/BN9U7qI.png" : "https://picsum.photos/seed/view2/800/1000", 

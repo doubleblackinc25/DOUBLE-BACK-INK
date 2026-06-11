@@ -59,7 +59,7 @@ export default function CollectionPage({ params }: Props) {
   const prices: Record<string, { label: string, value: number }> = {
     "limited-editions": { label: "R$ 129,90", value: 129.9 },
     "performance-trail": { label: "R$ 129,90", value: 129.9 },
-    "urban-equipment": { label: "R$ 420,00", value: 420 },
+    "urban-equipment": { label: "R$ 99,90", value: 99.9 },
   };
 
   const currentPrice = prices[id] || { label: "R$ 0,00", value: 0 };
@@ -70,7 +70,10 @@ export default function CollectionPage({ params }: Props) {
     imageHint: "technical product"
   };
 
-  const productViews = [
+  const productViews = id === "urban-equipment" ? [
+    { imageUrl: "https://i.imgur.com/yaYYNvs.png", description: "Urban Front View", imageHint: "tactical urban", id: "view-1", position: "center" },
+    { imageUrl: "https://i.imgur.com/kAOjqU0.png", description: "Urban Side View", imageHint: "tactical urban side", id: "view-2", position: "center" },
+  ] : [
     { ...baseProductImage, id: "view-1", position: id === "limited-editions" ? "center 0%" : "center 30%" },
     { 
       imageUrl: id === "performance-trail" 
