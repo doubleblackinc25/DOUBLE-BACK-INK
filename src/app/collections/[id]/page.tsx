@@ -127,12 +127,14 @@ export default function CollectionPage({ params }: Props) {
         return { backgroundColor: "#8D6E63" };
       case "CAMO GREY":
         return { 
-          background: "#3f4441",
+          background: "#4b4b4b",
           backgroundImage: `
-            radial-gradient(circle at 10% 20%, #4a4a4a 0%, #4a4a4a 35%, transparent 35.5%),
-            radial-gradient(circle at 80% 10%, #2a2d2b 0%, #2a2d2b 30%, transparent 30.5%),
-            radial-gradient(circle at 40% 70%, #5a5a5a 0%, #5a5a5a 25%, transparent 25.5%),
-            radial-gradient(circle at 90% 80%, #353535 0%, #353535 20%, transparent 20.5%)
+            radial-gradient(circle at 20% 30%, #2d2d2d 0%, #2d2d2d 25%, transparent 25.5%),
+            radial-gradient(circle at 70% 20%, #6a6a6a 0%, #6a6a6a 30%, transparent 30.5%),
+            radial-gradient(circle at 50% 60%, #3c3c3c 0%, #3c3c3c 28%, transparent 28.5%),
+            radial-gradient(circle at 85% 75%, #2a2a2a 0%, #2a2a2a 22%, transparent 22.5%),
+            radial-gradient(circle at 15% 85%, #5a5a5a 0%, #5a5a5a 18%, transparent 18.5%),
+            radial-gradient(circle at 60% 90%, #333333 0%, #333333 25%, transparent 25.5%)
           `,
           backgroundSize: "cover"
         };
