@@ -1,0 +1,32 @@
+
+{
+  "entities": {
+    "Lead": {
+      "title": "Lead",
+      "description": "Informações de usuários inscritos na newsletter.",
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string",
+          "format": "email",
+          "description": "O endereço de e-mail do lead."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Data e hora de criação do registro."
+        }
+      },
+      "required": ["email", "createdAt"]
+    }
+  },
+  "auth": {
+    "providers": ["google.com"]
+  },
+  "firestore": {
+    "/leads/{leadId}": {
+      "schema": "#/backend/entities/Lead",
+      "description": "Coleção de leads da newsletter."
+    }
+  }
+}
