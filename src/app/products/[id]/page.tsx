@@ -33,7 +33,7 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
   
   const isLimited = id.includes("limited");
   const colors = isLimited
-    ? [{ name: "MARROM", hex: "#5D4037" }]
+    ? [{ name: "MARROM", hex: "#795548" }]
     : [
         { name: "OFF WHITE", hex: "#FAF9F6" },
         { name: "PRETO", hex: "#000000" },
@@ -110,7 +110,7 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
       case "CINZA":
         return { backgroundColor: "#3f4441" };
       case "MARROM":
-        return { backgroundColor: "#5D4037" };
+        return { backgroundColor: "#795548" };
       default:
         return { backgroundColor: "#3f4441" };
     }
