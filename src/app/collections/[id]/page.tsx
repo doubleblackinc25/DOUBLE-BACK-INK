@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, use } from "react";
@@ -42,6 +43,12 @@ export default function CollectionPage({ params }: Props) {
   };
 
   const title = categoryNames[id] || "Coleção";
+  
+  const officialName = id === "performance-trail" 
+    ? "STEALTH CAMO" 
+    : id === "limited-editions" 
+      ? "DB SIGNATURE SERIES" 
+      : id.replace('-', ' ').toUpperCase();
 
   const baseProductImage = PlaceHolderImages.find((img) => img.id === id) || {
     imageUrl: "https://picsum.photos/seed/product/800/1000",
@@ -87,7 +94,7 @@ export default function CollectionPage({ params }: Props) {
       <Header />
       <main className="flex-grow container mx-auto py-12 px-4 md:px-6">
         <div className="mb-12">
-          <Button variant="ghost" asChild className="mb-6 -ml-4 hover:bg-transparent hover:text-accent">
+          <Button variant="ghost" asChild className="mb-6 -ml-4 hover:bg-transparent hover:text-accent font-body text-xs uppercase tracking-widest">
             <Link href="/">
               <ArrowLeft className="mr-2 h-4 w-4" /> Voltar para Início
             </Link>
@@ -115,7 +122,7 @@ export default function CollectionPage({ params }: Props) {
                         data-ai-hint={view.imageHint}
                       />
                       <div className="absolute top-4 left-4 bg-accent text-accent-foreground px-3 py-1 text-xs font-bold uppercase tracking-widest rounded-full">
-                        Protótipo {id.replace('-', ' ').toUpperCase()}
+                        {officialName}
                       </div>
                     </div>
                   </CarouselItem>
@@ -144,7 +151,7 @@ export default function CollectionPage({ params }: Props) {
               {/* Seleção de Cor */}
               <div className="space-y-4">
                 <Label className="text-sm uppercase tracking-widest text-muted-foreground">
-                  {id === "performance-trail" ? "STEALTH CAMO" : "DB SIGNATURE SERIES"}
+                  {officialName}
                 </Label>
                 <RadioGroup 
                   value={selectedColor} 
