@@ -11,8 +11,6 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Wand2, Loader2 } from "lucide-react";
 import { useEffect } from "react";
 import { useToast } from "@/hooks/use-toast";
-import Image from "next/image";
-import { PlaceHolderImages } from "@/lib/placeholder-images";
 
 const initialState: FormState = {
   data: null,
@@ -46,7 +44,6 @@ function SubmitButton() {
 export function CopyForm() {
   const [state, formAction] = useFormState(generateCopyAction, initialState);
   const { toast } = useToast();
-  const logoImage = PlaceHolderImages.find((img) => img.id === "brand-logo");
 
   useEffect(() => {
     if (state.error) {
@@ -62,17 +59,7 @@ export function CopyForm() {
     <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
       <Card className="border-2 border-border bg-card/50">
         <CardHeader>
-          <CardTitle className="text-2xl font-headline uppercase tracking-wider flex items-center gap-3">
-            {logoImage && (
-              <div className="relative w-8 h-8">
-                <Image
-                  src={logoImage.imageUrl}
-                  alt="Logo"
-                  fill
-                  className="object-contain"
-                />
-              </div>
-            )}
+          <CardTitle className="text-2xl font-headline uppercase tracking-wider">
             AI Copywriting Tool
           </CardTitle>
           <CardDescription className="font-body">
