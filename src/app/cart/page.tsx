@@ -13,10 +13,14 @@ import { useCart } from "@/hooks/use-cart";
 export default function CartPage() {
   const { items, removeItem, updateQuantity, totalPrice, totalItems } = useCart();
 
-  const formattedTotal = new Intl.NumberFormat('pt-BR', {
-    style: 'currency',
-    currency: 'BRL',
-  }).format(totalPrice);
+  const formatCurrency = (value: number) => {
+    return new Intl.NumberFormat('pt-BR', {
+      style: 'currency',
+      currency: 'BRL',
+    }).format(value);
+  };
+
+  const formattedTotal = formatCurrency(totalPrice);
 
   return (
     <div className="flex flex-col min-h-screen bg-background text-foreground">
@@ -92,7 +96,9 @@ export default function CartPage() {
                           +
                         </button>
                       </div>
-                      <span className="text-xl md:text-2xl font-headline tracking-widest text-white">{item.price}</span>
+                      <span className="text-xl md:text-2xl font-headline tracking-widest text-white">
+                        {formatCurrency(item.priceValue)}
+                      </span>
                     </div>
                   </div>
                 </div>

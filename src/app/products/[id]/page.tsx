@@ -50,9 +50,10 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
     "urban-equipment": { label: "R$ 420,00", value: 420 },
   };
 
-  const currentPrice = prices[id.includes("limited") ? "limited-editions" : id.includes("trail") ? "performance-trail" : "urban-equipment"] || { label: "R$ 0,00", value: 0 };
+  const priceKey = id.includes("limited") ? "limited-editions" : id.includes("trail") ? "performance-trail" : "urban-equipment";
+  const currentPrice = prices[priceKey] || { label: "R$ 0,00", value: 0 };
 
-  const baseProductImage = PlaceHolderImages.find((img) => img.id === (id.includes("limited") ? "limited-editions" : id.includes("trail") ? "performance-trail" : "urban-equipment")) || {
+  const baseProductImage = PlaceHolderImages.find((img) => img.id === priceKey) || {
     imageUrl: "https://picsum.photos/seed/product/800/1000",
     description: "Product View",
     imageHint: "technical product"
