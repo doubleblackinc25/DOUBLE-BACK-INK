@@ -96,9 +96,14 @@ export default function Footer() {
         </div>
         <div className="mt-12 pt-8 border-t border-border flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
           <Logo />
-          <p className="text-sm text-muted-foreground font-body">
-            © {new Date().getFullYear()} Double Black Supply Inc. Domine o Extremo.
-          </p>
+          <div className="flex flex-col items-center sm:items-end text-center sm:text-right">
+            <p className="text-sm text-muted-foreground font-body">
+              © {new Date().getFullYear()} Double Black Supply Inc. Domine o Extremo.
+            </p>
+            <p className="text-[9px] md:text-[10px] text-muted-foreground/60 font-body uppercase tracking-tighter mt-1">
+              PRODUTOS SUJEITOS A MODIFICAÇÕES/DIVERGÊNCIAS NO MOMENTO DA ENTREGA
+            </p>
+          </div>
         </div>
       </div>
     </footer>
