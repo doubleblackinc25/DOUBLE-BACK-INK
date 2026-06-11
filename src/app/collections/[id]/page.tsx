@@ -40,7 +40,7 @@ export default function CollectionPage({ params }: Props) {
     : id === "performance-trail"
       ? [{ name: "CAMO GREY", hex: "#4a4a4a" }]
       : [
-          { name: "OFF WHITE", hex: "#FAF9F6" },
+          { name: "OFF WHITE", hex: "#FDFBD3" },
           { name: "PRETO", hex: "#000000" },
           { name: "CINZA", hex: "#3f4441" }
         ];
@@ -118,7 +118,7 @@ export default function CollectionPage({ params }: Props) {
   const getCircleStyle = (colorName: string) => {
     switch (colorName) {
       case "OFF WHITE":
-        return { backgroundColor: "#FAF9F6" };
+        return { backgroundColor: "#FDFBD3" };
       case "PRETO":
         return { backgroundColor: "#000000" };
       case "CINZA":
