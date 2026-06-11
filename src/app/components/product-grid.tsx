@@ -1,4 +1,3 @@
-
 "use client";
 
 import Image from "next/image";
@@ -36,7 +35,7 @@ export default function ProductGrid() {
               
               <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/20 to-transparent" />
               
-              <div className="absolute inset-0 px-8 pb-6 md:px-10 md:pb-8 flex flex-col justify-end">
+              <div className="absolute inset-0 px-8 pb-2 md:px-10 md:pb-3 flex flex-col justify-end">
                 <div className="space-y-4">
                   <p className="text-accent text-xs font-bold uppercase tracking-[0.4em] translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
                     Drop Exclusivo
@@ -79,7 +78,7 @@ export default function ProductGrid() {
                 />
               )}
               <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/20 to-transparent" />
-              <div className="absolute inset-0 px-8 pb-4 flex flex-col justify-end">
+              <div className="absolute inset-0 px-8 pb-1 flex flex-col justify-end">
                 <div className="space-y-2">
                   <p className="text-accent text-xs font-bold uppercase tracking-[0.4em] translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
                     City Tactical
@@ -113,7 +112,7 @@ export default function ProductGrid() {
                 />
               )}
               <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/20 to-transparent" />
-              <div className="absolute inset-0 px-8 pb-4 flex flex-col justify-end">
+              <div className="absolute inset-0 px-8 pb-1 flex flex-col justify-end">
                 <div className="space-y-2">
                   <p className="text-accent text-xs font-bold uppercase tracking-[0.4em] translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
                     Hard Terrain
