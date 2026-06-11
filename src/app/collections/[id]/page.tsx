@@ -253,7 +253,7 @@ export default function CollectionPage({ params }: { params: Promise<{ id: strin
           id: "urban-beta",
           name: "CAMISETA BIKE DIVISION",
           price: { label: "R$ 99,90", value: 99.9 },
-          description: "Expansão da linha Alpha. Ergonomia aprimorada para deslocamentos rápidos em ambientes hostis.",
+          description: "Expansão da linha urbana. Ergonomia aprimorada para deslocamento na selva de pedra",
           views: [
             { imageUrl: "https://i.imgur.com/YRaTeop.png", description: "Bike Division Front", imageHint: "bike technical", id: "v1", position: "center" },
             { imageUrl: "https://i.imgur.com/U5CAWkF.png", description: "Bike Division Side", imageHint: "bike technical side", id: "v2", position: "center" },
