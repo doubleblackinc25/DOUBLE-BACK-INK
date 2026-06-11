@@ -35,9 +35,11 @@ export default function CollectionPage({ params }: Props) {
   const { addItem } = useCart();
   const { toast } = useToast();
   
-  const colors = id === "limited-editions" 
-    ? [{ name: "MARROM", hex: "#A1887F" }] 
-    : [{ name: "CINZA", hex: "#3f4441" }];
+  const colors = [
+    { name: "OFF WHITE", hex: "#FAF9F6" },
+    { name: "PRETO", hex: "#000000" },
+    { name: "CINZA", hex: "#3f4441" }
+  ];
 
   const [selectedSize, setSelectedSize] = useState("M");
   const [selectedColor, setSelectedColor] = useState(colors[0].name);
@@ -110,23 +112,28 @@ export default function CollectionPage({ params }: Props) {
   };
 
   const getCircleStyle = (colorName: string) => {
-    if (colorName === "MARROM") {
-      return { backgroundColor: "#A1887F" };
+    switch (colorName) {
+      case "OFF WHITE":
+        return { backgroundColor: "#FAF9F6" };
+      case "PRETO":
+        return { backgroundColor: "#000000" };
+      case "CINZA":
+      default:
+        return { 
+          backgroundColor: '#3a3e3c',
+          backgroundImage: `
+            radial-gradient(ellipse at 15% 25%, #4b514d 35%, transparent 36%),
+            radial-gradient(ellipse at 85% 15%, #2a2e2c 45%, transparent 46%),
+            radial-gradient(circle at 50% 55%, #5a5e5b 40%, transparent 41%),
+            radial-gradient(ellipse at 25% 75%, #1a1c1b 38%, transparent 39%),
+            radial-gradient(circle at 75% 85%, #2a2e2c 30%, transparent 31%),
+            radial-gradient(ellipse at 65% 35%, #4b514d 32%, transparent 33%),
+            radial-gradient(circle at 10% 90%, #5a5e5b 28%, transparent 29%),
+            repeating-linear-gradient(135deg, rgba(255,255,255,0.02) 0px, rgba(255,255,255,0.02) 1px, transparent 1px, transparent 4px)
+          `,
+          backgroundBlendMode: 'normal'
+        };
     }
-    return { 
-      backgroundColor: '#3a3e3c',
-      backgroundImage: `
-        radial-gradient(ellipse at 15% 25%, #4b514d 35%, transparent 36%),
-        radial-gradient(ellipse at 85% 15%, #2a2e2c 45%, transparent 46%),
-        radial-gradient(circle at 50% 55%, #5a5e5b 40%, transparent 41%),
-        radial-gradient(ellipse at 25% 75%, #1a1c1b 38%, transparent 39%),
-        radial-gradient(circle at 75% 85%, #2a2e2c 30%, transparent 31%),
-        radial-gradient(ellipse at 65% 35%, #4b514d 32%, transparent 33%),
-        radial-gradient(circle at 10% 90%, #5a5e5b 28%, transparent 29%),
-        repeating-linear-gradient(135deg, rgba(255,255,255,0.02) 0px, rgba(255,255,255,0.02) 1px, transparent 1px, transparent 4px)
-      `,
-      backgroundBlendMode: 'normal'
-    };
   };
 
   return (
