@@ -106,7 +106,7 @@ export default function ProductGrid() {
                   src={performanceTrailImage.imageUrl}
                   alt={performanceTrailImage.description}
                   fill
-                  style={{ objectPosition: '20% 0%' }}
+                  style={{ objectPosition: '20% 15%' }}
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
                   sizes="(max-width: 768px) 100vw, 50vw"
                   data-ai-hint={performanceTrailImage.imageHint}
