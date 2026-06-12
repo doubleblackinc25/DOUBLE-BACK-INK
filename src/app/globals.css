@@ -76,15 +76,16 @@
   .text-gradient-chrome {
     @apply bg-clip-text text-transparent;
     background-image: linear-gradient(
-      to bottom,
+      180deg,
       #ffffff 0%,
-      #f8f9fa 25%,
-      #e9ecef 45%,
-      #adb5bd 65%,
-      #6c757d 85%,
-      #343a40 100%
+      #ffffff 35%,
+      #adb5bd 45%,
+      #495057 50%,
+      #adb5bd 55%,
+      #f8f9fa 70%,
+      #ffffff 100%
     );
-    filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.25)) drop-shadow(0 4px 6px rgba(0, 0, 0, 0.5));
+    filter: drop-shadow(0 0 25px rgba(255, 255, 255, 0.4)) drop-shadow(0 4px 8px rgba(0, 0, 0, 0.7));
   }
 
   .text-gradient-black-fade {
