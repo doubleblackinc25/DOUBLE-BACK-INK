@@ -25,7 +25,7 @@ export default function TechSpecsSection() {
     <section className="bg-secondary/20 py-20 sm:py-28">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-logo uppercase tracking-wider">
+            <h2 className="text-3xl md:text-5xl font-logo uppercase tracking-wider text-gradient-chrome py-2">
                 Engenharia de Performance
             </h2>
             <p className="mt-4 max-w-2xl mx-auto text-muted-foreground text-lg">
