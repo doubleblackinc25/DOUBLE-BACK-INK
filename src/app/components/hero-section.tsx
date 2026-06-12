@@ -1,4 +1,3 @@
-
 "use client";
 
 import Image from "next/image";
@@ -25,6 +24,13 @@ export default function HeroSection() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  const scrollToProducts = () => {
+    const element = document.getElementById("products-grid");
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
     <section className="relative h-[90vh] min-h-[600px] flex items-start justify-center text-center text-white overflow-hidden">
@@ -55,6 +61,7 @@ export default function HeroSection() {
             variant="accent"
             size="lg"
             className="font-bold tracking-wider px-10 h-14 text-lg rounded-full"
+            onClick={scrollToProducts}
           >
             Explorar Equipamento
             <ArrowDown className="ml-2 h-5 w-5" />

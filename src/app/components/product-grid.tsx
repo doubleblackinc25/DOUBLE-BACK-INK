@@ -11,7 +11,7 @@ export default function ProductGrid() {
   const performanceTrailImage = PlaceHolderImages.find((img) => img.id === "performance-trail");
 
   return (
-    <section className="container mx-auto py-20 px-4 md:px-6">
+    <section id="products-grid" className="container mx-auto py-20 px-4 md:px-6 scroll-mt-24">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 min-h-[400px] lg:min-h-[640px] items-stretch">
         
         {/* Retângulo Vertical: Edições Limitadas */}
