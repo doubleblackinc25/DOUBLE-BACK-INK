@@ -50,7 +50,7 @@ export default function HeroSection() {
       </div>
       <div className="absolute inset-0 bg-black/20" />
       <div className="relative z-10 p-4 container mx-auto pt-24 md:pt-32">
-        <h1 className="text-6xl md:text-8xl lg:text-9xl font-headline tracking-tight text-gradient-metallic py-4">
+        <h1 className="text-6xl md:text-8xl lg:text-9xl font-headline tracking-tight text-gradient-chrome py-4">
           Domine o Extremo
         </h1>
         <p className="mt-6 max-w-2xl mx-auto text-lg md:text-xl text-neutral-300 drop-shadow-md font-medium">

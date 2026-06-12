@@ -73,6 +73,20 @@
     filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
   }
 
+  .text-gradient-chrome {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(
+      to bottom,
+      #f8f9fa 0%,
+      #e9ecef 20%,
+      #dee2e6 40%,
+      #adb5bd 60%,
+      #6c757d 80%,
+      #495057 100%
+    );
+    filter: drop-shadow(0 2px 10px rgba(255, 255, 255, 0.1));
+  }
+
   .text-gradient-black-fade {
     @apply bg-clip-text text-transparent;
     background-image: linear-gradient(
